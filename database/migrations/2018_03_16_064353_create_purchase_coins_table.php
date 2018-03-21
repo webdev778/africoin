@@ -15,7 +15,7 @@ class CreatePurchaseCoinsTable extends Migration
     {
         Schema::create('purchase_coins', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('retailer_id')->unsinged()->nullable();
+            $table->integer('retailer_id')->unsinged();
             $table->integer('supplier_id')->unsinged()->nullable();
             $table->integer('items_count')->unsinged()->nullable();
             $table->integer('buy_token')->unsinged()->nullable();
