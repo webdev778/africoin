@@ -24,6 +24,12 @@ class CreatePurchaseCoinsTable extends Migration
             $table->string('txHash')->nullable();   // transaction Hash
             $table->timestamps();
         });
+
+        Schema::table('purchase_coins', function (Blueprint $table) {
+            $table->foreign('retailer_id')
+                  ->references('id')->on('retailers');
+
+        });
     }
 
     /**
