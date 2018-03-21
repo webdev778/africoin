@@ -14,6 +14,7 @@ class CreatePurchaseCoinsTable extends Migration
     public function up()
     {
         Schema::create('purchase_coins', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('retailer_id')->unsinged();
             $table->integer('supplier_id')->unsinged()->nullable();
