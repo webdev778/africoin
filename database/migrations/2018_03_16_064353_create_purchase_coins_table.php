@@ -27,8 +27,8 @@ class CreatePurchaseCoinsTable extends Migration
         });
 
         Schema::table('purchase_coins', function (Blueprint $table) {
-            // $table->foreign('retailer_id')
-            //       ->references('id')->on('retailers');
+            $table->foreign('retailer_id')
+                  ->references('id')->on('retailers');
 
         });
     }
