@@ -1,0 +1,434 @@
+@import "vars"
+
+.token-utility
+  background: white
+  background-size: cover
+  text-align: justify
+  position: relative
+
+  .view-fix
+    z-index: 4
+
+  .img-stacks-of-coins
+    max-width: 60%
+
+  .section-header
+    span
+      z-index: 4
+
+  .round-built-by
+    top: auto
+    bottom: -15%
+
+  p
+    font-size: 1.3em
+    color: $main-4
+
+    &.contribution-program
+      font-size: 1.2em
+
+  .time-line
+    font-family: inherit
+    white-space: nowrap
+    overflow-x: hidden
+
+    ol
+      font-size: 0
+      padding: 200px 0
+      transition: all 1s
+
+      li
+        position: relative
+        display: inline-block
+        list-style-type: none
+        width: 140px
+        height: 3px
+        background: $main-Tradeum-2
+
+        &:first-child
+          background: none
+          width: 0
+
+        &:not(:first-child)
+          margin-left: 14px
+
+        &:not(:last-child)
+          &::after
+            content: ''
+            position: absolute
+            top: 50%
+            left: calc(100% + 1px)
+            bottom: 0
+            width: 12px
+            height: 12px
+            transform: translateY(-50%)
+            border-radius: 50%
+            background: #1779cf
+
+        div
+          position: absolute
+          left: calc(100% + 7px)
+          width: 200px
+          padding: 15px
+          font-size: 24px
+          text-align: center
+          white-space: normal
+          color: $main-4
+          background: transparent
+          border: 2px solid $main-Tradeum-2
+          border-radius: 5px
+
+          &::before
+            content: ''
+            position: absolute
+            top: 100%
+            left: -1px
+            width: 0
+            height: 0
+            border-style: solid
+
+        &:nth-child(odd)
+          div
+            top: -16px
+            transform: translateY(-100%)
+
+            &::before
+              top: 100%
+              border-width: 8px 8px 0 0
+              border-color: $main-Tradeum-2 transparent transparent transparent
+
+        &:nth-child(even)
+          div
+            top: calc(100% + 16px)
+
+            &::before
+              top: -8px
+              border-width: 8px 0 0 8px
+              border-color: transparent transparent transparent $main-Tradeum-2
+
+    time
+      display: block
+      font-size: 16px
+      font-weight: bold
+      margin-bottom: 8px
+      border-bottom: 1px solid
+
+    @media screen and (max-width: 1052px)
+      margin: 0
+
+      ol,
+      ol li
+        width: auto
+
+      ol
+        padding: 0
+        transform: none !important
+        li
+          display: block
+          height: auto
+          background: transparent
+          &:first-child
+            margin-top: 25px
+            width: auto
+          &:not(:first-child)
+            margin-left: auto
+          div
+            width: 94%
+            height: auto !important
+            margin: 0 auto 25px
+            position: static
+          &:nth-child(odd) div
+            transform: none
+
+          &:nth-child(odd) div::before,
+          &:nth-child(even) div::before
+            left: 50%
+            top: 100%
+            transform: translateX(-50%)
+            border: none
+            border-left: 1px solid white
+            height: 25px
+
+          &:last-child,
+          &:nth-last-child(2) div::before,
+          &:not(:last-child)::after
+            display: none
+
+  .tl-item
+    transform: translate3d(0, 0, 0)
+    position: relative
+    width: 25%
+    height: 400px
+    color: #fff
+    overflow: hidden
+    transition: width 0.5s ease
+
+    &:before, &:after
+      transform: translate3d(0, 0, 0)
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+
+    &:after
+      background: transparentize($main-Tradeum-2, 0.15)
+      opacity: 1
+      transition: opacity 0.5s ease
+
+    &:before
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .5) 75%)
+      z-index: 1
+      opacity: 0
+      transform: translate3d(0, 0, 0) translateY(50%)
+      transition: opacity 0.5s ease, transform 0.5s ease
+
+    &:hover
+      width: 30% !important
+
+      &:after
+        opacity: 0
+
+      &:before
+        opacity: 1
+        transform: translate3d(0, 0, 0) translateY(0)
+        transition: opacity 1s ease, transform 1s ease 0.25s
+
+      .tl-content
+        opacity: 1
+        transform: translateY(0)
+        transition: all 0.75s ease 0.2s
+
+      .tl-bg
+        filter: grayscale(0)
+        background-color: transparent
+
+  .tl-content
+    transform: translate3d(0, 0, 0) translateY(25px)
+    position: relative
+    z-index: 1
+    text-align: center
+    margin: 25px 0
+    top: 55%
+    opacity: 0
+
+    h1
+      text-transform: uppercase
+      color: $main-4
+      font-size: 1.44rem
+      font-weight: normal
+
+  .tl-year
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    z-index: 1
+
+    p
+      font-size: 1.728rem
+      line-height: 0
+      margin: 20px - 11px
+
+  #services
+    h1
+      margin-top: 0
+      color: $main-Tradeum-2
+
+  .community
+    .community__pool
+      h2
+        font-size: 2.3em
+        line-height: 2
+        margin-top: 0
+
+      img
+        margin-top: 85px
+
+      .team-img
+        padding: 0
+
+    .community__score
+      padding-top: 100px
+      .community__score__list
+        padding-top: 84px
+
+        .community__score__list-element
+          position: relative
+          z-index: 2
+          display: flex
+          align-items: center
+          flex-direction: row
+          padding: 10px
+          margin-bottom: 20px
+          border-radius: 4px
+          border: 1px solid #ccc
+          -webkit-box-shadow: 6px 7px 19px -8px rgba(0, 0, 0, 0.75)
+          -moz-box-shadow: 6px 7px 19px -8px rgba(0, 0, 0, 0.75)
+          box-shadow: 6px 7px 19px -8px rgba(0, 0, 0, 0.75)
+          transition: all .2s linear
+
+          &:hover
+            transform: scale(1.05)
+            border-color: $main-4
+            cursor: pointer
+            -webkit-box-shadow: 6px 7px 19px -8px rgba($main-4, 0.75)
+            -moz-box-shadow: 6px 7px 19px -8px rgba($main-4, 0.75)
+            box-shadow: 6px 7px 19px -8px rgba($main-4, 0.75)
+
+          img
+            height: 60px
+            margin-right: 20px
+
+  @media (max-width: 880px)
+    text-align: justify
+
+    .community
+      h2
+        text-align: center
+        font-size: 1.5em !important
+
+      .community__card
+        margin: 12px 0
+        height: 430px
+
+      .community__pool
+        img
+          margin-top: 0
+
+.single-service-item
+  border-left-color: $main-4 !important
+  min-height: 200px
+  position: relative
+  z-index: 2
+  padding: 30px 15px
+  background: #fff
+  text-align: center
+  -webkit-transition: .5s
+  transition: .5s
+  border-left: 2px solid
+
+  .top-border:before,
+  .right-border:before,
+  .bottom-border:before,
+  .single-service-item:hover,
+  .service-left-bg
+    background: $main-4 !important
+
+  &:hover
+    -webkit-transition: .5s
+    transition: .5s
+  &.border:after
+    position: absolute
+    content: ""
+    border-right: 10px solid #eeeeee
+    border-bottom: 10px solid #eeeeee
+    top: 39px
+    right: -34px
+    bottom: 8px
+    left: 118px
+    z-index: 5
+    transition: .5s ease
+
+  .content
+    position: relative
+
+  .top-border
+    width: 100%
+    height: 2px
+    top: 0
+    background: #eee
+    position: absolute
+    left: 0
+    transform: rotate(180deg)
+
+  .right-border
+    width: 2px
+    height: 100%
+    background: #eee
+    position: absolute
+    transform: rotate(180deg)
+    top: 0
+    right: 0
+
+  .bottom-border
+    width: 100%
+    height: 2px
+    background: #eee
+    position: absolute
+    bottom: 0
+    right: 0
+
+  .top-border:before,
+  .right-border:before,
+  .bottom-border:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+
+  .top-border:before
+    width: 0
+    height: 100%
+    transition: all .3s ease .0s
+
+  .right-border:before
+    width: 100%
+    height: 0
+    transition: all .3s ease .3s
+
+  .bottom-border:before
+    width: 0
+    height: 100%
+    transition: all .3s ease .6s
+
+  &:hover
+    .top-border:before
+      transition: all .3s ease .6s
+    .right-border:before
+      transition: all .3s ease .3s
+    .bottom-border:before
+      transition: all .3s ease .0s
+    .top-border:before, .bottom-border:before
+      width: 100%
+    .right-border:before
+      height: 100%
+
+  .service-left-bg
+    background: #ededed none repeat scroll 0 0
+    height: 100%
+    overflow: hidden
+    width: 80px
+    border-left: 2px solid
+    -webkit-transition: .5s
+    transition: .5s
+
+  .single-service-item:hover .service-left-bg
+    -webkit-transition: .5s
+    transition: .5s
+
+  .our-services .single-service-item .service-icon
+    text-align: center
+
+  .single-service-item:hover .service-icon
+    background: #fff
+    border-radius: 50px
+    -webkit-transition: .5s
+    transition: .5s
+
+  .service-text
+    overflow: hidden
+    padding: 15px 10px 0
+    p
+      font-size: 18px
+      color: #777
+      text-align: justify
+
+.about__advantages-list__element
+  display: flex
+  flex-direction: column
+  margin-bottom: 20px
+  min-height: 340px
+  img
+    height: 80px

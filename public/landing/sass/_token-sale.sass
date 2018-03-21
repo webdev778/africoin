@@ -1,0 +1,223 @@
+@import "vars"
+
+.token-sale
+  margin: 0
+  width: 100%
+  padding-bottom: 40px
+  p
+    text-align: justify
+    font-size: 1.3em
+    color: $main-4
+
+  h1
+    color: $main-Tradeum-2
+
+
+  .token-sale__flex-content
+    padding-top: 20px
+    text-align: justify
+
+  .cards
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+
+  #container
+    padding-left: 10px
+    padding-top: 10px
+    padding-bottom: 10px
+
+  .card
+    margin: 10px 0
+    position: relative
+    width: 280px
+    padding: 30px 30px 0 30px
+    box-sizing: border-box
+    border-radius: 0.2em
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3)
+    -webkit-transition: none
+    transition: none
+    *
+      -webkit-transition: none
+      transition: none
+    h3
+      font-size: 20px
+      margin-top: 0
+      margin-bottom: 30px
+      text-align: center
+      font-weight: 400
+    .chart-legend
+      position: relative
+      float: left
+      margin-top: 30px
+      margin-left: -30px
+      width: calc(100% + 60px)
+      padding: 7px 15px 5px 30px
+      border-radius: 0 0 0.2em 0.2em
+      h3, p
+        font-size: 13px
+        text-align: left
+        font-weight: 200
+        letter-spacing: 1px
+        line-height: 25px
+
+    .chart
+      position: relative
+      z-index: 44
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 220px
+      height: 220px
+
+
+
+    &.line .chart
+      overflow: visible
+
+    &.bg, .bg
+      background: #fff
+      color: #111
+
+    &.line canvas
+      border-color: #333
+
+    &.line-only canvas
+      border-color: #5CA8A6
+
+    &.quote p
+      border-color: #5CA8A6
+      &:before
+        border-color: #5CA8A6
+
+    .chart-legend, &.list li:before
+      background-color: #ffffff
+      color: black
+      z-index: 4
+
+    .bar-chart .bar:nth-child(4), .column-chart .column:nth-child(4), .stacked-column-chart .col-part:nth-child(1)
+      background-color: #4C4C4C
+      color: #fff
+      z-index: 4
+    .ring-chart
+      .ring-fill
+        border-color: black
+
+      .circle .mask .fill
+        background-color: black
+        color: #fff
+        z-index: 3
+    .bar-chart .bar:nth-child(3), .column-chart .column:nth-child(3), .stacked-column-chart .col-part:nth-child(2)
+      background-color: #666666
+      color: #fff
+      z-index: 3
+
+    .ring-chart.small .ring-fill
+      border-color: #666666
+
+    .bar-chart .bar:nth-child(2), .column-chart .column:nth-child(2), .stacked-column-chart .col-part:nth-child(3)
+      background-color: #B2B2B2
+      color: #fff
+      z-index: 2
+
+    .ring-chart.small .circle .mask .fill
+      background-color: #4C4C4C
+      color: #fff
+      z-index: 2
+
+    .ring-chart.mini .ring-fill
+      border-color: #666666
+
+    .ring-chart.mini .circle .mask .fill, .stacked-column-chart .col-part:nth-child(4)
+      background-color: #666666
+      color: #fff
+      z-index: 1
+
+    .bar-chart .bar:nth-child(1), .column-chart .column:nth-child(1)
+      background-color: #CCCCCC
+      color: #fff
+      z-index: 1
+
+    .ring-chart.nano .ring-fill
+      border-color: #B2B2B2
+
+    .bar-chart .bar:nth-child(1), .ring-chart.nano .circle .mask .fill
+      background-color: #B2B2B2
+      color: #fff
+      z-index: 1
+
+    .ring-chart.micro .ring-fill
+      border-color: #CCCCCC
+
+    .bar-chart .bar:nth-child(1), .ring-chart.micro .circle .mask .fill
+      background-color: #CCCCCC
+      color: #fff
+      z-index: 1
+
+    .chart-legend p
+      padding-left: 15px
+      &:before
+        content: ''
+        position: absolute
+        left: 20px
+        margin-top: 7px
+        width: 16px
+        height: 12px
+        border: 3px solid transparent
+      &:nth-child(1):before
+        background-color: #000000
+      &:nth-child(2):before
+        background-color: #4C4C4C
+      &:nth-child(3):before
+        background-color: #666666
+      &:nth-child(4):before
+        background-color: #B2B2B2
+      &:nth-child(5):before
+        background-color: #CCCCCC
+
+    .invers
+      p
+        &:nth-last-child(1):before
+          background-color: #000000
+        &:nth-last-child(2):before
+          background-color: #4C4C4C
+        &:nth-last-child(3):before
+          background-color: #666666
+        &:nth-last-child(4):before
+          background-color: #B2B2B2
+        &:nth-last-child(5):before
+          background-color: #CCCCCC
+
+    .column-chart
+      position: relative
+      float: left
+      width: 100%
+      height: 100%
+      .column
+        position: absolute
+        bottom: 0
+        left: 0
+        width: calc(20% - 8px)
+        margin-left: 5px
+        height: 0
+        -webkit-transition-timing-function: ease-in-out
+        transition-timing-function: ease-in-out
+        -webkit-transition: height 0.5s
+        transition: height 0.5s
+        &:nth-child(2)
+          left: 20%
+        &:nth-child(3)
+          left: 40%
+        &:nth-child(4)
+          left: 60%
+        &:nth-child(5)
+          left: 80%
+          background-color: rgba(0, 0, 0, 1)
+          color: #fff
+
+      .col-data
+        position: absolute
+        width: 100%
+        text-align: center
+        top: 5px
+        z-index: 3

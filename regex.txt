@@ -1,0 +1,4 @@
+Here are some patterns of regex to be used for replacing paths with Laravel syntax
+
+    href="assets\/([a-z\/\-0-9\.]+)"
+    href="{{ asset('$1') }}"

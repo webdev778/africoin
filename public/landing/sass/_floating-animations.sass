@@ -1,0 +1,95 @@
+@import "vars"
+
+.round-built-by
+  position: absolute
+  left: -40%
+  top: 15%
+  opacity: 0.2
+  z-index: 0
+
+  .round-animate
+    width: 700px
+    height: 700px
+    position: relative
+    display: inline-block
+
+    .round-1 span,
+    .round-2 span,
+    .round-3 span
+      border-radius: 50%
+      position: absolute
+      left: 50%
+
+    .round-1,
+    .round-2,
+    .round-3
+      border: 1px solid #797474
+      border-radius: 50%
+      position: absolute
+
+    .round-1
+      width: 700px
+      height: 700px
+      transform: rotate(23deg)
+      animation: round-1 60s linear infinite
+
+      .r-1
+        border: 2px solid #8c1bff
+        width: 25px
+        height: 25px
+        top: -12px
+        background-color: #eef6fe
+
+      .r-2
+        margin-left: 339px
+        top: 330px
+        width: 20px
+        height: 20px
+        border: 3px solid #8c1bff
+        background-color: #eef6fe
+
+    .round-2
+      width: 600px
+      top: 50px
+      height: 600px
+      left: 50px
+      transform: rotate(-41deg)
+      animation: round-1 80s linear infinite
+
+      .r-1
+        border: 2px solid #00ffc9
+        width: 15px
+        height: 15px
+        top: -8px
+        background-color: #eef6fe
+
+      .r-2
+        margin-left: -300px
+        width: 20px
+        height: 20px
+        border: 3px solid #00ffc9
+        top: 216px
+        background-color: #eef6fe
+
+    .round-3
+      width: 500px
+      top: 100px
+      height: 500px
+      left: 100px
+      transform: rotate(0deg)
+      animation: round-1 60s linear infinite
+
+      .r-1
+        border: 2px solid #b1af00
+        width: 15px
+        height: 15px
+        top: -8px
+        background-color: #eef6fe
+
+      .r-2
+        margin-left: -254px
+        top: 290px
+        width: 20px
+        height: 20px
+        border: 3px solid #b1af00
+        background-color: #eef6fe

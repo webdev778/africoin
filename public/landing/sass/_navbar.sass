@@ -1,0 +1,221 @@
+@import "vars"
+@import "_mixins/_mixins"
+
+.header
+  position: fixed
+  z-index: 222222
+  top: 0
+  left: 0
+  width: 100%
+  height: $header-height-small
+  background-color: $main-Tradeum-2
+  border-bottom: 1px solid rgba(255, 255, 255, .4)
+  @include clearfix
+  /* Force Hardware Acceleration */
+  //transform: translateZ(0)
+  will-change: transform
+  //transition: transform .5s
+  animation-name: fadeInDown
+
+  &.is-hidden
+    animation-name: fadeOutUp
+
+  @include MQ(L)
+    height: $header-height
+
+  .logo,
+  .nav-trigger
+    position: absolute
+    @include center(y)
+
+
+
+  .logo
+    left: 5%
+    width: 200px
+    height: auto
+    .logo__image
+      height: 60px
+
+    a, img
+      display: block
+
+  .nav-trigger
+    /* vertically align its content */
+    display: table
+    height: 100%
+    padding: 0 1em
+    font-size: 1.2rem
+    text-transform: uppercase
+    color: #fff
+    font-weight: bold
+    right: 0
+
+    span
+      /* vertically align inside parent element */
+      display: table-cell
+      vertical-align: middle
+
+    em, em::after, em::before
+      /* this is the menu icon */
+      display: block
+      position: relative
+      height: 2px
+      width: 22px
+      background-color: #fff
+      backface-visibility: hidden
+
+    em
+      /* this is the menu central line */
+      transition: background-color .2s
+
+    em::before, em::after
+      position: absolute
+      content: ''
+      left: 0
+      transition: transform .2s
+
+    em::before
+      /* this is the menu icon top line */
+      transform: translateY(-6px)
+
+    em::after
+      /* this is the menu icon bottom line */
+      transform: translateY(6px)
+
+    @include MQ(L)
+      display: none
+
+  &.nav-open
+    .nav-trigger
+      em
+        /* transform menu icon into a 'X' icon */
+        background-color: rgba($color-3, 0)
+
+      em::before
+        /* rotate top line */
+        transform: rotate(-45deg)
+
+      em::after
+        /* rotate bottom line */
+        transform: rotate(45deg)
+
+.primary-nav
+  display: inline-block
+  float: right
+  height: 100%
+  padding-right: 5%
+
+  ul,
+  li
+    list-style: none
+    margin: 0
+    padding: 0
+    border: 0
+    font: inherit
+    vertical-align: baseline
+
+  > ul
+    position: absolute
+    z-index: 2
+    top: $header-height-small
+    left: 0
+    width: 100%
+    background-color: $color-3
+    display: none
+    box-shadow: 0 14px 20px rgba(#000, .2)
+
+    a
+      /* target primary-nav links */
+      display: block
+      height: 50px
+      line-height: 50px
+      padding-left: 5%
+      color: $color-1
+      font-size: 1.8rem
+      border-top: 1px solid shade($color-3, 5%)
+
+      &:hover, &.active
+        color: $color-2
+
+  @include MQ(L)
+    /* vertically align its content */
+    display: table
+
+    > ul
+      /* vertically align inside parent element */
+      display: table-cell
+      vertical-align: middle
+      /* reset mobile style */
+      position: relative
+      width: auto
+      top: 0
+      padding: 0
+      @include clearfix
+      background-color: transparent
+      box-shadow: none
+
+      li
+        display: inline-block
+        float: left
+        margin-right: 1.5em
+
+        &:last-of-type
+          margin-right: 0
+
+      a
+        /* reset mobile style */
+        height: auto
+        line-height: normal
+        padding: 0
+        border: none
+        position: relative
+        display: inline-block
+        margin: 5px
+        outline: none
+        text-decoration: none
+        text-transform: uppercase
+        letter-spacing: 1px
+        font-weight: 200
+        font-size: 12px
+        color: #fff
+        -webkit-transition: color 0.3s
+        -moz-transition: color 0.3s
+        transition: color 0.3s
+
+        &:before
+          position: absolute
+          top: 85%
+          left: 50%
+          color: transparent
+          content: '•'
+          text-shadow: 0 0 transparent
+          font-size: 12px
+          -webkit-transition: text-shadow 0.3s, color 0.3s
+          -moz-transition: text-shadow 0.3s, color 0.3s
+          transition: text-shadow 0.3s, color 0.3s
+          -webkit-transform: translateX(-50%)
+          -moz-transform: translateX(-50%)
+          transform: translateX(-50%)
+          pointer-events: none
+
+        &:hover
+          color: #fff
+
+        &:hover:before,
+        &:focus:before
+          color: #fff
+          text-shadow: 10px 0 #fff, -10px 0 #fff
+
+.nav-open .primary-nav ul,
+.primary-nav ul:target
+  display: block
+
+  @include MQ(L)
+    display: table-cell
+
+.animation-delay
+  animation-delay: .5s
+
+  
+

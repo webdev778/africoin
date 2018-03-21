@@ -1,0 +1,104 @@
+.advantages-container
+  position: relative
+  background-image: url("../img/advantages/bgadvantages.jpg")
+  background-size: cover
+  .head
+    padding-bottom: 40px
+
+  &:after
+    z-index: 3
+    content: ""
+    position: absolute
+    bottom: -200px
+    height: 200px
+    background-color: #fff
+    width: 100%
+    transform: skewY(3deg)
+
+  &:before
+    z-index: 3
+    content: ""
+    position: absolute
+    bottom: -200px
+    height: 200px
+    background-color: #fff
+    width: 100%
+    transform: skewY(-3deg)
+
+  @media only screen and (min-width: 992px)
+    min-height: 1200px
+
+  .advantages-mob
+    .text-center
+      text-align: center
+    .advantages-mob__element
+      padding: 30px 20px 20px 20px
+      font-size: 14px
+      color: #FFFFFF
+      cursor: pointer
+      transition: all 0.3s ease-in
+      border-radius: 25px
+
+      &:last-child
+        padding-left: 100px
+        padding-right: 100px
+        padding-bottom: 40px
+
+        @media only screen and (max-width: 767px)
+          padding-left: 10px
+          padding-right: 10px
+          padding-bottom: 20px
+
+      &:hover
+        background-color: rgba(0, 0, 0, 0.2)
+        transform: scale(1.2)
+      h2
+        line-height: 0
+        font-weight: 400
+      p
+        margin-top: 0
+        font-weight: 200
+      img
+        height: 60px
+        padding: 10px
+
+  .advantages
+    position: relative
+    z-index: 2
+    margin-left: 41%
+    top: 230px
+    padding: 0
+
+    .advantages__el
+      img
+        height: 60px
+        padding: 10px
+      color: white
+      font-size: 14px
+      text-align: center
+      position: absolute
+      width: 210px
+      cursor: pointer
+      &:first-child
+        padding-top: 40px
+        width: 500px
+        left: -22%
+        @media screen and (max-width: 1200px)
+          left: -27%
+
+      .advantages__el-content
+        transition: all 0.3s ease-in
+        padding: 20px
+        border-radius: 15px
+
+        h2
+          line-height: 26px
+          font-weight: 400
+          margin: 6px 0
+        p
+          margin-top: 0
+          font-weight: 100
+      &:hover:not(:first-child)
+        div
+          background-color: rgba(0, 0, 0, 0.2)
+          transform: scale(1.2)

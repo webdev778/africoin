@@ -1,0 +1,197 @@
+
+#retailer_logo{
+    width:100%;    
+}
+
+.barcode_container {
+    text-align: center;
+    // border: 1px solid lightgreen;
+    padding: 20px;
+}
+
+.product_img{
+    text-align: center; 
+    border: 1px solid #f0eff0;
+    padding: 10px;
+}
+
+.table-cart{
+    width: 100%;
+
+    @media only screen and (max-width: 767px){
+        overflow-x: auto;
+        margin: 0;
+    }
+
+    > table{
+        width: 100%;
+        @media only screen and (max-width: 1179px){
+            width: 1179px;
+            overflow: hidden;
+            max-width:none;
+        }
+        display: flex;
+        flex-direction: column;
+        border-collapse: collapse;
+        > thead{
+            width:100%;
+            min-height: 50px;
+            border-bottom: 1px solid #e9e9e9;
+            tr{
+                width:100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                th{
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #323332;
+                    line-height: 1.2;
+                    white-space: nowrap;
+                    padding: 15px 0;
+                    margin: 0 20px;
+                    width: 15%;
+                    text-align: center;
+                    border-bottom: none;
+
+                    &.itemRemove{
+                        width: 50px;
+                        margin: 0;
+                        flex-shrink: 0;                        
+                        margin-left: 15px;
+                        @media only screen and (max-width: 991px) {
+                            width: 30px;
+                            margin-left: 10px;
+                        }                        
+                    }
+
+                    &.itemImage{
+                        width: 80px;
+                        flex-shrink: 0;
+                        @media only screen and (max-width: 991px) {
+                            width: 60px;
+                        }                                       
+                    }
+                    &.itemName{
+                        max-width: none;
+                        text-align: left;
+                        width: 25%;
+                    }
+                    &.itemPrice{
+
+                    }
+                    &.itemBarcode{
+
+                    }
+                    &.itemQuantity{
+                        
+                    }
+                    &.itemTotal{
+                        
+                    }
+                    &.itemDiscount{
+                        
+                    }
+                    &.itemAFT{
+                        
+                    }
+                }
+
+            }
+        }
+        
+        > tbody{
+            width:100%;
+            > tr{
+                width:100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                min-height: 140px;
+                > td{
+                    border-top: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #323332;
+                    line-height: 1.2;
+                    overflow: hidden;
+                    padding: 15px 0;
+                    margin: 0 20px;
+                    width: 15%;
+                    text-align: center;
+
+                    &.itemRemove{
+                        text-align: center;
+                        width: 50px;                        
+                        margin: 0;
+                        margin-left: 15px;
+                        flex-shrink: 0;
+                        @media only screen and (max-width: 991px) {
+                            width: 30px;
+                            margin-left: 10px;
+                        }                        
+                    }
+
+                    &.itemImage{
+                        width: 80px;
+                        flex-shrink: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @media only screen and (max-width: 991px) {
+                            width: 60px;
+                        }                            
+                    }
+                    &.itemName{
+                        text-align: left;
+                        max-width: none;
+                        width: 25%;
+                    }
+                    &.itemPrice{
+
+                    }
+                    &.itemBarcode{
+
+                    }
+                    &.itemQuantity{
+                        
+                    }
+                    &.itemTotal{
+                        
+                    }
+                    &.itemDiscount{
+                        
+                    }
+                    &.itemAFT{
+                        
+                    }                    
+                }           
+                &.totalBill{
+                    border-top: 1px solid #e9e9e9;
+                    padding-top: 10px;
+                    min-height: 100px;
+
+                    table {
+                        width: 100%;
+                        tr{
+                            height: 30px;
+                            td {
+                                text-align:right;
+                            }
+                        }
+                        tr:last-child{
+                            border-top: 1px dashed grey;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .form-wizard .tab-content {
+        margin: 0 15px;
+        margin-top: 35px;
+    }
+}

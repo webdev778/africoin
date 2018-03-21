@@ -1,0 +1,146 @@
+@import "vars"
+
+.about
+  .about__blockchain
+    p
+      text-align: left
+      font-size: 1.3em
+      color: $main-4
+
+  .two-wrapper
+    background: url(../img/shape-3.png) no-repeat center
+
+  .single-service-item
+    border-left-color: #007bff !important
+  .single-service-item
+    .top-border:before, .right-border:before, .bottom-border:before, .single-service-item:hover .service-left-bg
+      background: #007bff !important
+    height: 270px
+    margin-bottom: 26px
+    position: relative
+    padding: 30px 15px
+    background: #fff
+    text-align: center
+    -webkit-transition: .5s
+    transition: .5s
+    border-left: 2px solid
+    &:hover
+      -webkit-transition: .5s
+      transition: .5s
+
+    &.border:after
+      position: absolute
+      content: ""
+      border-right: 10px solid #eeeeee
+      border-bottom: 10px solid #eeeeee
+      top: 39px
+      right: -34px
+      bottom: 8px
+      left: 118px
+      z-index: 5
+      transition: .5s ease
+    .content
+      position: relative
+
+    .top-border
+      width: 100%
+      height: 2px
+      top: 0
+      background: #eee
+      position: absolute
+      left: 0px
+      transform: rotate(180deg)
+
+    .right-border
+      width: 2px
+      height: 100%
+      background: #eee
+      position: absolute
+      transform: rotate(180deg)
+      top: 0px
+      right: 0px
+
+    .bottom-border
+      width: 100%
+      height: 2px
+      background: #eee
+      position: absolute
+      bottom: 0px
+      right: 0px
+    .top-border:before, .right-border:before, .bottom-border:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+    .top-border:before
+      width: 0%
+      height: 100%
+      transition: all .3s ease .0s
+    .right-border:before
+      width: 100%
+      height: 0%
+      transition: all .3s ease .3s
+    .bottom-border:before
+      width: 0%
+      height: 100%
+      transition: all .3s ease .6s
+    &:hover
+      .top-border:before
+        transition: all .3s ease .6s
+      .right-border:before
+        transition: all .3s ease .3s
+      .bottom-border:before
+        transition: all .3s ease .0s
+      .top-border:before, .bottom-border:before
+        width: 100%
+      .right-border:before
+        height: 100%
+
+  .service-left-bg
+    background: #ededed none repeat scroll 0 0
+    height: 100%
+    overflow: hidden
+    width: 80px
+    border-left: 2px solid
+    -webkit-transition: .5s
+    transition: .5s
+
+  .single-service-item:hover .service-left-bg
+    -webkit-transition: .5s
+    transition: .5s
+
+  .our-services .single-service-item .service-icon
+    text-align: center
+
+  .single-service-item:hover .service-icon
+    background: #fff
+    border-radius: 50px
+    -webkit-transition: .5s
+    transition: .5s
+
+  .service-text
+    overflow: hidden
+    padding: 15px 10px 0
+    h4
+      text-transform: capitalize
+      font-size: 18px
+      font-weight: 600
+      margin-bottom: 20px
+      margin-top: 0
+      a
+        color: #222222
+        transition: .5s
+    p
+      font-family: 'open sans', sans-serif
+      font-size: 14px
+      color: #777
+    h4 a:hover
+      transition: .5s
+
+  .about__advantages-list__element
+    display: flex
+    flex-direction: column
+    img
+      height: 80px
+      &:first-child
+        height: 70px

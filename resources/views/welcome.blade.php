@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>AFRICOIN</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta charset="utf-8">
+	<meta name="author" content="Anja Seric">
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+	<!-- Favicons -->
+	<link rel="icon" type="image/png" href="{{asset('landing1/icon/favicon-32x32.png')}}" sizes="32x32">
+	<link rel="apple-touch-icon" href="{{asset('landing1/icon/favicon-32x32.png')}}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{{asset('landing1/icon/apple-touch-icon-72x72.png')}}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{{asset('landing1/icon/apple-touch-icon-114x114.png')}}">
+	<link rel="apple-touch-icon" sizes="144x144" href="{{asset('landing1/icon/apple-touch-icon-144x144.png')}}">
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Jura:600,700%7CRoboto:300,400,500,700" rel="stylesheet"> 
+
+	<!-- Icons -->
+	<link rel="stylesheet" href="{{asset('landing1/css/linearicons.css')}}">
+	<link rel="stylesheet" href="{{asset('landing1/css/font-awesome.min.css')}}">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{{asset('landing1/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('landing1/css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('landing1/css/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('landing1/css/magnific-popup.css')}}">
+	<link rel="stylesheet" href="{{asset('landing1/css/main-custom.css')}}">
+
+</head>
+<body class="body" data-spy="scroll" data-target=".header" data-offset="60">
+	<!-- header -->
+	<header class="header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- btn -->
+					<button class="header__btn" type="button">
+						<span class="lnr lnr-menu"></span>
+						<span class="lnr lnr-cross"></span>
+					</button>
+					<!-- end btn -->
+
+					<!-- logo -->
+					<a data-scroll href="#home" class="header__logo">
+						<img class="header__logo-white" src="{{asset('landing1/img/logo.png')}}" alt="Logo">
+						<img class="header__logo-dark" src="{{asset('landing1/img/logo--dark.png')}}" alt="Logo">
+					</a>
+					<!-- end logo -->
+
+					<!-- tagline -->
+					<span class="header__tagline" style="margin-top: 10px">AFRICOIN</span>
+					<!-- end tagline -->
+
+					<!-- navigation -->
+					<ul class="nav header__nav">
+						<li>
+							<a data-scroll href="#about">About Us</a>
+						</li>
+						<li>
+							<a data-scroll href="#features">Features</a>
+						</li>
+						<li>
+							<a data-scroll href="#contacts">Contacts</a>
+						</li>
+					</ul>
+					<!-- end navigation -->
+
+					<!-- sign in -->
+					<a href="{{ route('login') }}" class="header__signin">Sign In</a>
+					<!-- end sign in -->
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- end header -->
+
+	<!-- home -->
+	<section id="home" class="home" data-parallax="scroll" data-image-src="{{asset('landing1/img/home/slide-custom.jpg')}}">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- home content -->
+					<div class="home__content-wrap">
+						<div class="home__content">
+							<h1 class="home__title">AFRICOIN</h1>
+
+							<p class="home__text">Secure & Easy Way To Trade</p>
+
+							<a data-scroll href="#about" class="home__btn">Learn More</a>
+
+							<a data-scroll href="#about" class="home__btn home__btn--color" style="display:none">Learn More</a>
+						</div>
+					</div>
+					<!-- end home content -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end home -->
+
+	<!-- ticker -->
+	<div class="ticker section--gradient">
+		<!-- ticker list -->
+		<ul class="ticker__list clearfix">
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>GNT</b> / AFT</span>
+				<span class="price">0.00002861</span>
+				<span class="change change--red">-2.81%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>ITC</b> / AFT</span>
+				<span class="price">0.00006148</span>
+				<span class="change change--red">-1.85%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>QASH</b> / AFT</span>
+				<span class="price">0.000010281</span>
+				<span class="change change--green">+4.34%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>DGD</b> / AFT</span>
+				<span class="price">0.009051</span>
+				<span class="change change--red">-2.67%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>PAY</b> / AFT</span>
+				<span class="price">0.000216</span>
+				<span class="change change--red">-1.81%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>BCC</b> / AFT</span>
+				<span class="price">0.130641</span>
+				<span class="change change--red">-1.44%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>ETH</b> / AFT</span>
+				<span class="price">0.0422283</span>
+				<span class="change change--red">-1.02%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>ZAR</b> / AFT</span>
+				<span class="price">1.000000</span>
+				<span class="change change--green">+2.81%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>XRP</b> / AFT</span>
+				<span class="price">0.00002266</span>
+				<span class="change change--red">-3.49%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>LTC</b> / AFT</span>
+				<span class="price">0.009269</span>
+				<span class="change change--green">+6.54%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>BTG</b> / AFT</span>
+				<span class="price">0.024681</span>
+				<span class="change change--red">-2.78%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>DASH</b> / AFT</span>
+				<span class="price">0.069507</span>
+				<span class="change change--red">-3.52%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>ETC</b> / AFT</span>
+				<span class="price">0.002737</span>
+				<span class="change change--green">+0.81%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>EOS</b> / AFT</span>
+				<span class="price">0.00032227</span>
+				<span class="change change--green">+12.93%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>OMG</b> / AFT</span>
+				<span class="price">0.000874</span>
+				<span class="change change--green">+5.30%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>RDN</b> / AFT</span>
+				<span class="price">0.00036004</span>
+				<span class="change change--red">-4.62%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>SNT</b> / AFT</span>
+				<span class="price">0.00000678</span>
+				<span class="change change--green">+27.68%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>KNC</b> / AFT</span>
+				<span class="price">0.00010116</span>
+				<span class="change change--green">+0.59%</span>
+			</li>
+			<!-- end ticker item -->
+
+			<!-- ticker item -->
+			<li class="ticker__item">
+				<span class="name"><b>ZRX</b> / AFT</span>
+				<span class="price">0.00001867</span>
+				<span class="change change--red">-2.35%</span>
+			</li>
+			<!-- end ticker item -->
+		</ul>
+		<!-- end ticker list -->
+	</div>
+	<!-- end ticker -->
+
+	<!-- about -->
+	<section id="about" class="about about--arrow section--gradient">
+		<div class="container">
+			<div class="row">
+				<!-- section title -->
+				<div class="col-xs-12">
+					<h2 class="section__title section__title--white section__title--margin">About AFRICOIN</h2>
+				</div>
+				<!-- end section title -->
+				
+				<div class="col-xs-12">
+					<!-- about text -->
+					<div class="about__text">
+						<p><b>Africoin is a African  Cryptocurrency</b> utilised for P2P transfers and is a reward ecosystem for <b>large retailers</b> to utilise Blockchain technology. </p>
+
+					</div>
+					<!-- end about text -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end about -->
+
+	<!-- roadmap -->
+	
+	<!-- end roadmap -->
+
+	<!-- get started -->
+	
+	<!-- end get started -->
+
+	<!-- video -->
+	<!-- <section class="section video" data-parallax="scroll" data-image-src="{{asset('landing1/img/section-bg/section-bg2.jpg')}}">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+					<a href="https://vimeo.com/45830194" class="video__btn"><i class="fa fa-play-circle"></i></a>
+					<h4 class="video__title">Video Review</h4>
+					<p class="video__text">Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	<!-- end video -->
+
+	<!-- offers -->
+
+	<!-- end offers -->
+
+	<!-- features -->
+	<section id="features" class="section" data-parallax="scroll" data-image-src="{{asset('landing1/img/home/slide2.jpg')}}">
+		<div class="container">
+			<div class="row">
+				<!-- section title -->
+				<div class="col-xs-12">
+					<h2 class="section__title section__title--white"><span>Features</span></h2>
+					<p class="section__text section__text--white">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.</p>
+				</div>
+				<!-- end section title -->
+
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!-- box (style 1) -->
+					<div class="box1">
+						<span class="lnr lnr-diamond box1__icon"></span>
+						<h3 class="box1__title">Secure</h3>
+						<p class="box1__text"> Utilising Blockchain technology and cryptocurrency.</p>
+					</div>
+					<!-- end box (style 1) -->
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!-- box (style 1) -->
+					<div class="box1">
+						<span class="lnr lnr-magic-wand box1__icon"></span>
+						<h3 class="box1__title">Zero Volatility</h3>
+						<p class="box1__text">As each Token is backed by a Rand in the bank there is no risk in exchange volatility.</p>
+					</div>
+					<!-- end box (style 1) -->
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
+					<!-- box (style 1) -->
+					<div class="box1">
+						<span class="lnr lnr-laptop-phone box1__icon"></span>
+						<h3 class="box1__title">Ecosystem</h3>
+						<p class="box1__text">Africoin offers a ecosystem for users to earn, spend and save with no bank fees or transfer costs.</p>
+					</div>
+					<!-- end box (style 1) -->
+				</div>
+
+				<!-- section button -->
+				<div class="col-xs-12">
+					<a href="#" class="section__btn">purchase now</a>
+				</div>
+				<!-- end section button -->
+			</div>
+		</div>
+	</section>
+	<!-- end features -->
+
+	<!-- safety -->
+	<section class="section">
+		<div class="container">
+			<div class="row">
+				<!-- section title -->
+				<div class="col-xs-12">
+					<h2 class="section__title section__title--underline">Retailers And Brands</h2>
+				</div>
+				<!-- end section title -->
+
+				<div class="col-xs-12 col-sm-4">
+					<!-- box (style 3) -->
+					<div class="box3 box3--line">
+						<div class="box3__icon">
+							<span class="lnr lnr-lock"></span>
+						</div>
+						<h3 class="box3__title">Security</h3>
+						<p class="box3__text">Offer Vouchers in africoins as a reward system.</p>
+					</div>
+					<!-- end box (style 3) -->
+				</div>
+
+				<div class="col-xs-12 col-sm-4">
+					<!-- box (style 3) -->
+					<div class="box3 box3--line">
+						<div class="box3__icon">
+							<span class="lnr lnr-license"></span>
+						</div>
+						<h3 class="box3__title">License</h3>
+						<p class="box3__text">Increase sales with bonus africoins.</p>
+					</div>
+					<!-- end box (style 3) -->
+				</div>
+
+				<div class="col-xs-12 col-sm-4">
+					<!-- box (style 3) -->
+					<div class="box3">
+						<div class="box3__icon">
+							<span class="lnr lnr-thumbs-up"></span>
+						</div>
+						<h3 class="box3__title">Result</h3>
+						<p class="box3__text">Include your bands and stores in the Africoin ecosystem.</p>
+					</div>
+					<!-- end box (style 3) -->
+				</div>
+
+				<!-- section button -->
+				<div class="col-xs-12">
+					<a href="#" class="section__btn1">purchase now</a>
+				</div>
+				<!-- end section button -->
+			</div>
+		</div>
+	</section>
+	<!-- end safety -->
+
+	<!-- counter -->
+	<!-- <div class="section counter" data-parallax="scroll" data-image-src="{{asset('landing1/img/section-bg/section-bg3.jpg')}}">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-3 col-lg-3">
+					<div class="counter__box">
+						<span class="counter__value">5.7</span>
+						<span class="counter__title">mln transactions</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-3 col-lg-3">
+					<div class="counter__box">
+						<span class="counter__value">70</span>
+						<span class="counter__title">online consultants</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-3 col-lg-3">
+					<div class="counter__box">
+						<span class="counter__value">23</span>
+						<span class="counter__title">countries served</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-3 col-lg-3">
+					<div class="counter__box">
+						<span class="counter__value">2.5</span>
+						<span class="counter__title">mln bitcoin wallets</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- end counter -->
+
+	<!-- blog -->
+	<section id="blog" class="section section--grey" style="display:none">
+		<div class="container">
+			<div class="row">
+				<!-- section title -->
+				<div class="col-xs-12">
+					<h2 class="section__title">Blog</h2>
+					<span class="section__tagline">Our publications</span>
+				</div>
+				<!-- end section title -->
+
+				<!-- article -->
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<article class="article">
+						<figure class="article__img">
+							<a href="#">
+								<img src="{{asset('landing1/img/blog/1.jpg')}}" alt="">
+							</a>
+						</figure>
+
+						<header class="article__header">
+							<h3 class="article__title">
+								<a href="#">Blockchain</a>
+							</h3>
+						</header>
+
+						<div class="article__content">
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't.</p>
+						</div>
+					</article>
+				</div>
+				<!-- end article -->
+
+				<!-- article -->
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<article class="article">
+						<figure class="article__img">
+							<a href="#">
+								<img src="{{asset('landing1/img/blog/2.jpg')}}" alt="">
+							</a>
+						</figure>
+
+						<header class="article__header">
+							<h3 class="article__title">
+								<a href="#">Finance</a>
+							</h3>
+						</header>
+
+						<div class="article__content">
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't.</p>
+						</div>
+					</article>
+				</div>
+				<!-- end article -->
+
+				<!-- article -->
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<article class="article">
+						<figure class="article__img">
+							<a href="#">
+								<img src="{{asset('landing1/img/blog/3.jpg')}}" alt="">
+							</a>
+						</figure>
+
+						<header class="article__header">
+							<h3 class="article__title">
+								<a href="#">Business</a>
+							</h3>
+						</header>
+
+						<div class="article__content">
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't.</p>
+						</div>
+					</article>
+				</div>
+				<!-- end article -->
+			</div>
+		</div>
+	</section>
+	<!-- end blog -->
+
+	<!-- info -->
+	<section class="section" data-parallax="scroll" data-image-src="{{asset('landing1/img/home/slide3.jpg')}}">
+		<div class="container">
+			<div class="row">
+				<!-- section title -->
+				<div class="col-xs-12">
+					<h2 class="section__title section__title--white">Features</h2>
+					<span class="section__tagline section__tagline--white">Your tagline</span>
+				</div>
+				<!-- end section title -->
+
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+					<!-- info content -->
+					<div class="info__text info__text--white">
+						<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+
+						<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
+
+						<p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+					</div>
+					<!-- end info content -->
+				</div>
+
+				<!-- section button -->
+				<div class="col-xs-12">
+					<a href="#" class="section__btn section__btn--white">purchase now</a>
+				</div>
+				<!-- end section button -->
+			</div>
+		</div>
+	</section>
+	<!-- end info -->
+
+	<!-- team -->
+	
+	<!-- end team -->
+
+	<!-- get in touch -->
+	<section id="contacts" class="section">
+		<div class="container">
+			<div class="row">
+				<!-- section title -->
+				<div class="col-xs-12">
+					<h2 class="section__title">Get in Touch</h2>
+					<p class="section__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which.</p>
+				</div>
+				<!-- end section title -->
+
+				<div class="col-xs-12 col-sm-6">
+					<!-- contacts -->
+					<div class="contacts">
+						<ul class="contacts__list">
+							<li>
+								<span class="lnr lnr-map"></span>
+								The AFRICOIN Company, LLC <br>
+								32 Barnard St. #145 Savannah, GA 80634
+							</li>
+							<li>
+								<span class="lnr lnr-calendar-full"></span>Mon - Fri 08:00 - 19:00
+							</li>
+							<li>
+								<span class="lnr lnr-inbox"></span>
+								<a href="mailto:support@AFRICOIN.com">support@AFRICOIN.com</a>
+							</li>
+							<li>
+								<span class="lnr lnr-phone-handset"></span>
+								<a href="tel:+18002345678">+1 (800) 234-5678</a>
+							</li>
+						</ul>
+					</div>
+					<!-- end contacts -->
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<!-- form -->
+					<form action="#" class="form form--contacts">
+						<input type="text" class="form__input" placeholder="Name">
+						<input type="text" class="form__input" placeholder="Email">
+						<textarea class="form__textarea" placeholder="Message"></textarea>
+						<button class="form__btn" type="button">Send</button>
+					</form>
+					<!-- end form -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end get in touch -->
+
+	<!-- partners -->
+	<div class="partners section--grey">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- partners slider -->
+					<div class="owl-carousel partners__slider">
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+
+						<!-- slider item -->
+						<div class="item">
+							<a href="#">
+								<img src="{{asset('landing1/img/partners/partner.png')}}" alt="">
+							</a>
+						</div>
+						<!-- end slider item -->
+					</div>
+					<!-- end partners slider -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end partners -->
+
+	<!-- footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- section title -->
+				<div class="col-xs-12">
+					<h2 class="section__title section__title--white">Subscribe For Our Newsletter</h2>
+				</div>
+				<!-- end section title -->
+
+				<div class="col-xs-12">
+					<form action="#" class="subscribe">
+						<input type="text" class="subscribe__input" placeholder="Enter your Email">
+						<button type="button" class="subscribe__btn"><i class="fa fa-paper-plane-o"></i></button>
+					</form>
+				</div>
+
+				<div class="col-xs-12">
+					<!-- social list -->
+					<ul class="footer__social clearfix">
+						<li>
+							<a href="#"><i class="fa fa-facebook"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-skype"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-instagram"></i></a>
+						</li>
+					</ul>
+					<!-- end social list -->
+				</div>
+
+				<div class="col-xs-12">
+					<!-- copyright -->
+					<small class="footer__copyright">© 2018 <a href="#">AFRICOIN</a>. Create by <a href="#">Anja Seric</a></small>
+					<!-- end copyright -->
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- end footer -->
+
+	<!-- sign in -->
+	<div id="signin" class="mfp-hide modal">
+		<button class="modal__close" type="button">
+			<span class="lnr lnr-cross"></span>
+		</button>
+
+		<h6 class="modal__title">Sign In</h6>
+
+		<form class="form form--modal" action="#">
+			<input type="text" class="form__input" placeholder="Username">
+			<input type="password" class="form__input" placeholder="Password">
+			<button class="form__btn" type="button">Sign In</button>
+		</form>
+
+		<a href="#signup" class="modal__link modal-btn">Sign Up</a>
+	</div>
+	<!-- end sign in -->
+
+	<!-- sign up -->
+	<div id="signup" class="mfp-hide modal">
+		<button class="modal__close" type="button">
+			<span class="lnr lnr-cross"></span>
+		</button>
+
+		<h6 class="modal__title">Sign Up</h6>
+
+		<form class="form form--modal" action="#">
+			<input type="text" class="form__input" placeholder="Username">
+			<input type="text" class="form__input" placeholder="Email">
+			<input type="password" class="form__input" placeholder="Password">
+			<button class="form__btn" type="button">Sign Up</button>
+		</form>
+
+		<a href="#signin" class="modal__link modal-btn">Sign In</a>
+	</div>
+	<!-- end sign up -->
+
+	<!-- preloader -->
+	<div class="preloader">
+		<div class="preloader__logo">
+			<img src="{{asset('landing1/img/logo--dark.png')}}" alt="">
+		</div>
+		<div class="preloader__spinner">
+			<div class="preloader__bounce1"></div>
+			<div class="preloader__bounce2"></div>
+		</div>
+	</div>
+	<!-- end preloader -->
+
+	<!-- JS -->
+	<script src="{{asset('landing1/js/jquery-2.2.4.min.js')}}"></script>
+	<script src="{{asset('landing1/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('landing1/js/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('landing1/js/jquery.marquee.min.js')}}"></script>
+	<script src="{{asset('landing1/js/smooth-scroll.min.js')}}"></script>
+	<script src="{{asset('landing1/js/jquery.magnific-popup.min.js')}}"></script>
+	<script src="{{asset('landing1/js/parallax.min.js')}}"></script>
+	<script src="{{asset('landing1/js/scrolla.jquery.min.js')}}"></script>
+	<script src="{{asset('landing1/js/jquery.waypoints.min.js')}}"></script>
+	<script src="{{asset('landing1/js/jquery.counterup.min.js')}}"></script>
+	<script src="{{asset('landing1/js/imagesloaded.pkgd.min.js')}}"></script>
+	<script src="{{asset('landing1/js/main.js')}}"></script>
+</body>
+</html>

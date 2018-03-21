@@ -1,0 +1,299 @@
+@import "vars"
+@import "_mixins/_mixins"
+
+.hero-section
+  background: $main-Tradeum-2
+  background-size: cover
+  min-height: 100vh
+  height: auto
+  position: relative
+  padding-top: 100px
+  display: block
+
+  &:after
+    content: ""
+    position: absolute
+    bottom: -200px
+    height: 200px
+    background-color: #fff
+    width: 100%
+    transform: skewY(10deg)
+
+  &:before
+    content: ""
+    position: absolute
+    bottom: -200px
+    height: 200px
+    background-color: #fff
+    width: 100%
+    transform: skewY(-10deg)
+
+  .inner-hero-section
+    min-height: calc(100vh - 100px)
+    min-width: 50vw
+    background: url(../img/map.svg) center no-repeat
+    background-size: 100% 100%
+    z-index: 1
+
+    .hero-section__container
+      z-index: 2
+      color: white
+
+    .hero-section__left-block
+      z-index: 2
+
+      .hero-section__text-mask
+        h1
+          color: #fff
+          margin-bottom: 0
+          font-weight: 600
+          font-size: 4em
+
+        h1,
+        h1 span,
+        p,
+        div.buttons-block
+          opacity: 0
+          animation-duration: .8s
+          animation-delay: .3s
+          animation-fill-mode: forwards
+
+          .no-cssanimations &
+            opacity: 1
+
+      .hero-section__action-wrapper
+        overflow: hidden
+
+      .mask.hero-section__text-mask
+        h1
+          position: relative
+          padding-bottom: 2px
+          /* overwrite default style */
+          opacity: 1
+          font-weight: 700
+          /* <h1> text is not visible - it is used only as a container for the ::after element */
+          color: transparent
+          overflow: hidden
+
+          &:after
+            content: attr(data-content)
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            color: $color-3
+            animation-name: cd-reveal-up
+            animation-fill-mode: backwards
+            animation-duration: .7s
+            animation-delay: .7s
+          span
+            position: relative
+            opacity: 1
+
+            &::before
+              content: ''
+              position: absolute
+              top: calc(100% + 1px)
+              left: -1em
+              height: 2px
+              width: calc(100% + 2em)
+              background-color: $color-3
+              animation: cd-loading-mask 1.3s .4s both
+
+        p
+          position: relative
+          margin: 0
+          padding: 2px 0 0 0
+          font-size: 2em
+          font-weight: 200
+          animation-name: cd-reveal-down
+          animation-duration: .4s
+          animation-delay: .7s
+
+        div.buttons-block
+          animation-name: cd-reveal-down
+          animation-duration: .5s
+          animation-delay: .6s
+
+          @include MQ(M)
+            padding-top: 20px
+      .button
+        //float: left
+        min-width: 150px
+        max-width: 250px
+        display: inline-flex
+        margin: 1em
+        padding: 1em 2em
+        border: 1px solid
+        border-radius: 5px
+        background: none
+        color: inherit
+        vertical-align: middle
+        position: relative
+        z-index: 1
+        -webkit-backface-visibility: hidden
+        -moz-osx-font-smoothing: grayscale
+        text-decoration: none
+
+        &:focus
+          outline: none
+
+        &.wayra
+          overflow: hidden
+          -webkit-transition: border-color 0.3s, color 0.3s
+          transition: border-color 0.3s, color 0.3s
+          -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+          transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+
+          &:before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 150%
+            height: 100%
+            background: $main-Tradeum-1
+            z-index: -1
+            -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)
+            transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)
+            -webkit-transform-origin: 0 100%
+            transform-origin: 0 100%
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s
+            transition: transform 0.3s, opacity 0.3s, background-color 0.3s
+
+          &:hover
+            color: $main-Tradeum-1
+            border-color: $main-Tradeum-1
+
+          &:hover:before
+            opacity: 1
+            background-color: #fff
+            -webkit-transform: rotate3d(0, 0, 1, 0deg)
+            transform: rotate3d(0, 0, 1, 0deg)
+            -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+            transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+
+    .hero-section__right-block
+      padding: 70px 0 70px 0
+      z-index: 2
+
+      .hero-section__counter-area
+        padding: 18px 0
+        text-align: center
+        border-radius: 5px
+        background-color: rgba(255, 255, 255, .1)
+        animation-delay: .7s
+
+        h3
+          margin-top: 0
+          margin-bottom: 30px
+
+        .hero-section__counter-block
+          display: inline-block
+          text-align: center
+          font-size: 20px
+          color: #fff
+          margin: 0 20px
+          font-weight: 200
+
+        .hero-section__counter-block span
+          display: block
+          font-size: 40px
+          font-weight: 700
+          line-height: 20px
+
+      .hero-section__link-area
+        text-align: center
+        padding: 10px
+        border-radius: 0 0 5px 5px
+        // TODO: if you want to change it to black
+        // TODO: change to rgba(0, 0, 0, .2)
+        background-color: rgba(41, 182, 246, .4)
+        animation-delay: .7s
+
+        a
+          position: relative
+          display: inline-block
+          margin: 5px
+          outline: none
+          text-decoration: none
+          text-transform: uppercase
+          letter-spacing: 1px
+          font-weight: 200
+          font-size: 10px
+          color: #fff
+          -webkit-transition: color 0.3s
+          -moz-transition: color 0.3s
+          transition: color 0.3s
+
+          @include MQ(S)
+            font-size: 8px
+
+          @include MQ(XS)
+            font-size: 8px
+
+          @include MQ(M)
+            font-size: 9px
+
+          &:before
+            position: absolute
+            top: 85%
+            left: 50%
+            color: transparent
+            content: '•'
+            text-shadow: 0 0 transparent
+            font-size: 10px
+            -webkit-transition: text-shadow 0.3s, color 0.3s
+            -moz-transition: text-shadow 0.3s, color 0.3s
+            transition: text-shadow 0.3s, color 0.3s
+            -webkit-transform: translateX(-50%)
+            -moz-transform: translateX(-50%)
+            transform: translateX(-50%)
+            pointer-events: none
+
+          &:hover:before,
+          &:focus:before
+            color: #fff
+            text-shadow: 10px 0 #fff, -10px 0 #fff
+
+      .hero-section__social-area
+        animation-delay: .7s
+        ul
+          margin: 0 0 20px 0
+          padding: 0
+          text-align: center
+
+          li
+            display: inline-block
+            list-style: none
+            width: 4em
+
+            &:last-child
+              width: 3.5em
+
+            @include MQ(SM)
+              width: 2em
+
+            a
+              padding: 0
+              margin: 0
+              position: relative
+              transition: all .01s ease-in
+
+              .fa-layers
+                color: transparent
+                width: .8em
+
+                &:hover
+                  color: white
+
+              .fa-facebook
+                &:hover
+                  color: #3b5998
+              .fa-twitter-square
+                &:hover
+                  color: #1da1f2
+              .fa-telegram
+                &:hover
+                  color: #0088cc

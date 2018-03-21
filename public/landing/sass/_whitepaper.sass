@@ -1,0 +1,132 @@
+@import "vars"
+
+.white-paper
+  position: relative
+  background: $main-Tradeum-2
+  background: -moz-radial-gradient(center, ellipse cover, $main-Tradeum-2 0%, #0f163e 100%)
+  background: -webkit-radial-gradient(center, ellipse cover, $main-Tradeum-2 0%, #0f163e 100%)
+  background: radial-gradient(ellipse at center, $main-Tradeum-2 0%, #0f163e 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$main-Tradeum-2', endColorstr='#212121', GradientType=1)
+
+  &:after
+    content: ""
+    position: absolute
+    bottom: -200px
+    height: 200px
+    background-color: #fff
+    width: 100%
+    transform: skewY(3deg)
+
+  &:before
+    content: ""
+    position: absolute
+    bottom: -200px
+    height: 200px
+    background-color: #fff
+    width: 100%
+    transform: skewY(-3deg)
+
+  .white-paper_block
+    margin: 20px 0 20px 0
+    h3
+      text-align: center
+      margin-bottom: 30px
+      font-weight: 700
+
+  .white-paper_item
+    position: relative
+    z-index: 2
+    min-height: 60px
+    margin-bottom: 20px
+    padding: 1px 20px
+    background: #212121
+    background: -moz-linear-gradient(left, #fff 0%, #424242 100%)
+    background: -webkit-linear-gradient(left, #fff 0%, #424242 100%)
+    background: linear-gradient(to right, #fff 0%, #424242 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#212121', endColorstr='#424242', GradientType=1)
+    transition: background-color .1s ease-in
+
+    &:hover
+      background: white
+      cursor: pointer
+
+      img
+        &:last-child
+          border: 1px solid #ccc
+          border-radius: 50%
+
+      .button
+        color: $main-Tradeum-1
+        border: 1px solid rgba(0, 0, 0, .15)
+        &.wayra
+          &:before
+            color: $main-Tradeum-1
+
+    img
+      width: 40px
+      position: relative
+      margin-right: 20px
+
+    .button
+      //float: left
+      min-width: 150px
+      max-width: 250px
+      display: inline-flex
+      margin-bottom: 1em
+      margin-top: 1em
+      padding: 1em 2em
+      border: 1px solid #fff
+      border-radius: 5px
+      background: none
+      color: #fff
+      vertical-align: middle
+      position: relative
+      z-index: 1
+      -webkit-backface-visibility: hidden
+      -moz-osx-font-smoothing: grayscale
+      text-decoration: none
+
+      &:focus
+        outline: none
+
+      &.wayra
+        overflow: hidden
+        -webkit-transition: border-color 0.3s, color 0.3s
+        transition: border-color 0.3s, color 0.3s
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+
+        &:before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 150%
+          height: 100%
+          background: #fff
+          z-index: -1
+          -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)
+          transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0)
+          -webkit-transform-origin: 0 100%
+          transform-origin: 0 100%
+          -webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s
+          transition: transform 0.3s, opacity 0.3s, background-color 0.3s
+
+        &:hover
+          color: #fff
+          border-color: $main-Tradeum-1
+
+        &:hover:before
+          opacity: 1
+          background-color: $main-Tradeum-1
+          -webkit-transform: rotate3d(0, 0, 1, 0deg)
+          transform: rotate3d(0, 0, 1, 0deg)
+          -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+          transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+
+    div
+      &.pull-left
+        font-size: 1.5em
+        font-weight: 300
+        height: 92px
+        line-height: 92px

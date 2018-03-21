@@ -1,0 +1,74 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+
+.captcha{
+    padding: 9px;
+}
+
+.login-page .login-header {
+    padding: 20px 0;
+}
+
+/* .form-wizard > ul > li.completed a span {
+    box-shadow: 0px 0px 0px 23px #00a651;
+}
+
+.form-wizard > ul > li.completed a p {
+    margin-top: 25px;
+    color: #ffa812;
+    font-size: 18px;
+} */
+
+.tile-title .icon span {
+    color: white;
+    font-size : 20px;
+    font-weight: bold;
+}
+
+.fixed_num{
+    font-size: 38px;
+    font-weight: bold;
+    position: relative;
+    color: #fff;
+    z-index: 5;
+    margin: 0;
+    padding: 0;
+}
+
+.recaptcha {
+    margin-left: 19%;
+}
+
+@media (max-width: 1199px){
+    .recaptcha {
+        margin-left: 12%;
+    }
+}
+@media (max-width: 768px){
+    .recaptcha {
+        margin-left: 26%;
+    }
+}
+@media (max-width: 696px){
+    .recaptcha {
+        margin-left: 21%;
+    }
+}
+@media (max-width: 499px){
+    .recaptcha {
+        margin-left: 12%;
+    }
+}
+.login-content .checkbox label input {
+    position: relative;
+    top: 0px;
+}
+
+.login-content .checkbox a {
+    text-decoration: underline;
+    cursor: pointer;
+}

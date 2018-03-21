@@ -1,0 +1,120 @@
+@-webkit-keyframes mouse-wheel
+  0%
+    opacity: 1
+    -webkit-transform: translateY(0)
+    -ms-transform: translateY(0)
+    transform: translateY(0)
+  100%
+    opacity: 0
+    -webkit-transform: translateY(6px)
+    -ms-transform: translateY(6px)
+    transform: translateY(6px)
+
+@-moz-keyframes mouse-wheel
+  0%
+    top: 1px
+  50%
+    top: 2px
+  100%
+    top: 3px
+
+@keyframes mouse-scroll
+  0%
+    opacity: 0
+  50%
+    opacity: .5
+  100%
+    opacity: 1
+
+@keyframes cd-loading-mask
+  0%
+    transform: scaleX(0)
+
+  40%, 100%
+    transform: scaleX(1)
+
+@keyframes cd-reveal-up
+  0%
+    opacity: 1
+    -webkit-transform: translateY(100%)
+    -moz-transform: translateY(100%)
+    -ms-transform: translateY(100%)
+    -o-transform: translateY(100%)
+    transform: translateY(100%)
+
+  100%
+    opacity: 1
+    -webkit-transform: translateY(0)
+    -moz-transform: translateY(0)
+    -ms-transform: translateY(0)
+    -o-transform: translateY(0)
+    transform: translateY(0)
+
+@keyframes cd-reveal-down
+  0%
+    opacity: 1
+    -webkit-transform: translateY(-100%)
+    -moz-transform: translateY(-100%)
+    -ms-transform: translateY(-100%)
+    -o-transform: translateY(-100%)
+    transform: translateY(-100%)
+
+  100%
+    opacity: 1
+    -webkit-transform: translateY(0)
+    -moz-transform: translateY(0)
+    -ms-transform: translateY(0)
+    -o-transform: translateY(0)
+    transform: translateY(0)
+
+@keyframes round-1
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@keyframes cd-enter-right
+  0%
+    opacity: 0
+    -webkit-transform: translateX(100%)
+    -moz-transform: translateX(100%)
+    -ms-transform: translateX(100%)
+    -o-transform: translateX(100%)
+    transform: translateX(100%)
+
+  100%
+    opacity: 1
+    -webkit-transform: translateX(0%)
+    -moz-transform: translateX(0%)
+    -ms-transform: translateX(0%)
+    -o-transform: translateX(0%)
+    transform: translateX(0%)
+
+
+@keyframes cd-enter-left
+  0%
+    opacity: 0
+    -webkit-transform: translateX(-100%)
+    -moz-transform: translateX(-100%)
+    -ms-transform: translateX(-100%)
+    -o-transform: translateX(-100%)
+    transform: translateX(-100%)
+
+  100%
+    opacity: 1
+    -webkit-transform: translateX(0%)
+    -moz-transform: translateX(0%)
+    -ms-transform: translateX(0%)
+    -o-transform: translateX(0%)
+    transform: translateX(0%)
+
+@keyframes fadebounce
+  0%
+    transform: translateY(0)
+    opacity: 1
+  50%
+    transform: translateY(20px)
+    opacity: 1
+  100%
+    transform: translateY(0)
+    opacity: 1
