@@ -14,21 +14,21 @@ class CreatePurchaseCoinsTable extends Migration
     public function up()
     {
         Schema::create('purchase_coins', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('retailer_id')->unsinged();
-            $table->integer('supplier_id')->unsinged()->nullable();
-            $table->integer('items_count')->unsinged()->nullable();
-            $table->integer('buy_token')->unsinged()->nullable();
             $table->string('fee')->nullable();
             $table->string('billedTotal')->nullable();
             $table->string('txHash')->nullable();   // transaction Hash
+            $table->unsignedInteger('retailer_id')->nullable();
+            $table->unsignedInteger('supplier_id')->nullable();
+            $table->integer('items_count')->unsinged()->nullable();
+            $table->integer('buy_token')->unsinged()->nullable();
+
             $table->timestamps();
         });
 
         Schema::table('purchase_coins', function (Blueprint $table) {
-            $table->foreign('retailer_id')
-                  ->references('id')->on('retailers');
+            // $table->foreign('retailer_id')
+            //       ->references('id')->on('retailers');
 
         });
     }
@@ -40,6 +40,6 @@ class CreatePurchaseCoinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchase_coin');
+        Schema::dropIfExists('purchase_coins');
     }
 }
