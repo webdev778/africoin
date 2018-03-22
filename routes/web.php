@@ -15,7 +15,7 @@ Route::model('Retailer', App\Retailer::class);
 Route::model('PurchaseCoin', App\PurchaseCoin::class);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome3');
 });
 
 Auth::routes();

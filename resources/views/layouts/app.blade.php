@@ -49,7 +49,7 @@
 	<script src="{{ asset('js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/neon-login.js') }}"></script>
     
-	<script src="{{ asset('assets/js/jquery.inputmask.bundle.js') }}"></script>
+	<script src="{{ asset('js/jquery.inputmask.bundle.js') }}"></script>
 
 
 	<!-- JavaScripts initializations and stuff -->
