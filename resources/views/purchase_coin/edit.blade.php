@@ -18,10 +18,10 @@
 			</div>
 			
 			<ul class="hidden-print">
-				<li class="completed">
+				<li class="active">
 					<a href="#tab2-1" data-toggle="tab"><span>1</span>Retailer</a>
 				</li>
-				<li class="active">
+				<li>
 					<a href="#tab2-2" data-toggle="tab"><span>2</span>Scan & Discount</a>
 				</li>
 				<li>
@@ -33,7 +33,7 @@
 			</ul>
 			
 			<div class="tab-content">
-				<div class="tab-pane completed" id="tab2-1">
+				<div class="tab-pane active" id="tab2-1">
 					
 					<div class="row">
 											
@@ -62,7 +62,7 @@
 										
 				</div>
 				
-				<div class="tab-pane active" id="tab2-2">
+				<div class="tab-pane" id="tab2-2">
 					<div class="row">
 						<div class="col-md-4">
 							<div class="row">						
