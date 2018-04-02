@@ -51,19 +51,7 @@
 				barSpacing: 2
 			});
 		
-		
-			// JVector Maps
-			var map = $("#map");
-		
-			map.vectorMap({
-				map: 'europe_merc_en',
-				zoomMin: '3',
-				backgroundColor: '#383f47',
-				focusOn: { x: 0.5, y: 0.8, scale: 3 }
-			});
-		
-		
-		
+
 			// Line Charts
 			var line_chart_demo = $("#line-chart-demo");
 		
@@ -127,64 +115,8 @@
 				lineColors: ['#303641', '#576277']
 			});
 		
-			area_chart_demo.parent().attr('style', '');
+			area_chart_demo.parent().attr('style', '');			
 		
-		
-		
-		
-			// Rickshaw
-			var seriesData = [ [], [] ];
-		
-			var random = new Rickshaw.Fixtures.RandomData(50);
-		
-			for (var i = 0; i < 50; i++)
-			{
-				random.addData(seriesData);
-			}
-		
-			var graph = new Rickshaw.Graph( {
-				element: document.getElementById("rickshaw-chart-demo"),
-				height: 193,
-				renderer: 'area',
-				stroke: false,
-				preserve: true,
-				series: [{
-						color: '#73c8ff',
-						data: seriesData[0],
-						name: 'Upload'
-					}, {
-						color: '#e0f2ff',
-						data: seriesData[1],
-						name: 'Download'
-					}
-				]
-			} );
-		
-			graph.render();
-		
-			var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-				graph: graph,
-				xFormatter: function(x) {
-					return new Date(x * 1000).toString();
-				}
-			} );
-		
-			var legend = new Rickshaw.Graph.Legend( {
-				graph: graph,
-				element: document.getElementById('rickshaw-legend')
-			} );
-		
-			var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
-				graph: graph,
-				legend: legend
-			} );
-		
-			setInterval( function() {
-				random.removeData(seriesData);
-				random.addData(seriesData);
-				graph.update();
-		
-			}, 500 );
 		});
 		
 		
@@ -226,7 +158,7 @@
 		
 				<div class="tile-stats tile-aqua">
 					<div class="icon"><i class="entypo-mail"></i></div>
-					<div class="num" data-start="0" data-end="3500" data-postfix="" data-duration="1500" data-delay="1200">0</div>
+					<div class="num" data-start="0" data-end="9" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 		
 					<h3>Contracts</h3>
 					<p>messages per day.</p>
@@ -250,12 +182,12 @@
 		<br />
 		
 		<div class="row">
-			<div class="col-sm-8">
+			<div class="col-sm-12">
 		
 				<div class="panel panel-primary" id="charts_env">
 		
 					<div class="panel-heading">
-						<div class="panel-title">Site Stats</div>
+						<div class="panel-title">Sale Stats</div>
 		
 						<div class="panel-options">
 							<ul class="nav nav-tabs">
@@ -292,7 +224,7 @@
 							<tr>
 								<th width="50%" class="col-padding-1">
 									<div class="pull-left">
-										<div class="h4 no-margin">Pageviews</div>
+										<div class="h4 no-margin">Sale</div>
 										<small>54,127</small>
 									</div>
 									<span class="pull-right pageviews">4,3,5,4,5,6,5</span>
@@ -300,7 +232,7 @@
 								</th>
 								<th width="50%" class="col-padding-1">
 									<div class="pull-left">
-										<div class="h4 no-margin">Unique Visitors</div>
+										<div class="h4 no-margin">Discount</div>
 										<small>25,127</small>
 									</div>
 									<span class="pull-right uniquevisitors">2,3,5,4,3,4,5</span>
@@ -314,34 +246,6 @@
 		
 			</div>
 		
-			<div class="col-sm-4">
-		
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="panel-title">
-							<h4>
-								Real Time Stats
-								<br />
-								<small>current server uptime</small>
-							</h4>
-						</div>
-		
-						<div class="panel-options">
-							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
-							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-							<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-							<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-						</div>
-					</div>
-		
-					<div class="panel-body no-padding">
-						<div id="rickshaw-chart-demo">
-							<div id="rickshaw-legend"></div>
-						</div>
-					</div>
-				</div>
-		
-			</div>
 		</div>
 		
 		
@@ -378,7 +282,7 @@
 		
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<div class="panel-title">Latest Purchases</div>
+						<div class="panel-title">Latest Contracts</div>
 		
 						<div class="panel-options">
 							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
@@ -394,30 +298,30 @@
 								<th>#</th>
 								<th>Supplier</th>
 								<th>AFT</th>
-								<th>Activity</th>
+								<th>Date</th>
 							</tr>
 						</thead>
 		
 						<tbody>
 							<tr>
 								<td>1</td>
-								<td>Supplier1</td>
+								<td>Checkers</td>
 								<td>583,820</td>
-								<td class="text-center"><span class="inlinebar">4,3,5,4,5,6</span></td>
+								<td>02/04/2018</td>
 							</tr>
 		
 							<tr>
 								<td>2</td>
-								<td>Supplier2</td>
+								<td>Checkers</td>
 								<td>20,550</td>
-								<td class="text-center"><span class="inlinebar-2">1,3,4,5,3,5</span></td>
+								<td>01/04/2018</td>
 							</tr>
 		
 							<tr>
 								<td>3</td>
-								<td>Supplier3</td>
+								<td>Checkers</td>
 								<td>56,120</td>
-								<td class="text-center"><span class="inlinebar-3">5,3,2,5,4,5</span></td>
+								<td>31/03/2018</td>
 							</tr>
 		
 						</tbody>
@@ -429,103 +333,15 @@
 		</div>
 		
 		<br />
-		
-		
-		<script type="text/javascript">
-			// Code used to add Todo 
-			jQuery(document).ready(function($)
-			{
-				var $todo_tasks = $("#todo_tasks");
-		
-				$todo_tasks.find('input[type="text"]').on('keydown', function(ev)
-				{
-					if(ev.keyCode == 13)
-					{
-						ev.preventDefault();
-		
-						if($.trim($(this).val()).length)
-						{
-							var $todo_entry = $('<li><div class="checkbox checkbox-replace color-white"><input type="checkbox" /><label>'+$(this).val()+'</label></div></li>');
-							$(this).val('');
-		
-							$todo_entry.appendTo($todo_tasks.find('.todo-list'));
-							$todo_entry.hide().slideDown('fast');
-							replaceCheckboxes();
-						}
-					}
-				});
-			});
-		</script>
-		
-		<div class="row">
-							
-			<div class="col-sm-12">
-		
-				<script type="text/javascript">
-					jQuery(document).ready(function($)
-					{
-						var map = $("#map-2");
-		
-						map.vectorMap({
-							map: 'europe_merc_en',
-							zoomMin: '3',
-							backgroundColor: '#383f47',
-							focusOn: { x: 0.5, y: 0.8, scale: 3 }
-						});
-					});
-				</script>
-		
-				<div class="tile-group">
-		
-					<div class="tile-left">
-						<div class="tile-entry">
-							<h3>Map</h3>
-							<span>top visitors location</span>
-						</div>
-		
-						<div class="tile-entry">
-							<img src="{{ asset('images/sample-al.png') }}" alt="" class="pull-right op" />
-		
-							<h4>Albania</h4>
-							<span>25%</span>
-						</div>
-		
-						<div class="tile-entry">
-							<img src="{{ asset('images/sample-it.png') }}" alt="" class="pull-right op" />
-		
-							<h4>Italy</h4>
-							<span>18%</span>
-						</div>
-		
-						<div class="tile-entry">
-							<img src="{{ asset('images/sample-au.png') }}" alt="" class="pull-right op" />
-		
-							<h4>Austria</h4>
-							<span>15%</span>
-						</div>
-					</div>
-		
-					<div class="tile-right">
-		
-						<div id="map-2" class="map"></div>
-		
-					</div>
-		
-				</div>
-		
-			</div>
-		
-		</div>
+					
+				
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{ asset('js/jvectormap/jquery-jvectormap-1.2.2.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/rickshaw/rickshaw.min.css') }}">
 @endsection
 @section('scripts')
     <script src="{{ asset('js/jvectormap/jquery-jvectormap-europe-merc-en.js') }}"></script>
 	<script src="{{ asset('js/jquery.sparkline.min.js') }}"></script>
-	<script src="{{ asset('js/rickshaw/vendor/d3.v3.js') }}"></script>
-	<script src="{{ asset('js/rickshaw/rickshaw.min.js') }}"></script>
 	<script src="{{ asset('js/raphael-min.js') }}"></script>
 	<script src="{{ asset('js/morris.min.js') }}"></script>
 	<script src="{{ asset('js/toastr.js') }}"></script>
