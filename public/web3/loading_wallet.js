@@ -3,6 +3,7 @@ if (typeof erc20contract_address == "undefined") {
     var erc20contract_function_address = "0x13cdf340d67f9bc2721fb1674206693218bff248";
     var token_owner_address = "0x0B764c58Df739c7456229dcc14eAdC3121952e64"
     var option_etherscan_api = 'https://api-ropsten.etherscan.io'; //change to https://api.etherscan.io for mainnet
+    var option_etherscan_api_tx = 'https://ropsten.etherscan.io/tx/'; //change to https://api.etherscan.io for mainnet
     var option_etherscan_api_key = 'QSUZ77YJZ2H68K6SJKRZSAP7ERYJS51893';
     var option_registration_enabled = true;
     // var option_registration_backend = 'https://intel.worldbit.com/kyc_interface.php'; ///'subscribe.php'; //you can use remote address like https://yoursite.com/subscribe.php
@@ -101,7 +102,7 @@ function sendRwTr(value1, args, abifunc, callback = "#consolesell", to = erc20co
                                     reportAffiliate($("#amount").val(), value1);
                                 }
 
-                                fetchTransactionLog(openkey);
+                                // fetchTransactionLog(openkey);
 
                             },
                             fail: function (d) {
@@ -351,3 +352,42 @@ function toFixedBal(bal, decimal){
     return result;
 }
 check_wallet();
+
+function fetchTransactionLog() {
+    address = localStorage.getItem("trm_addr");
+    $.ajax({
+        type: "GET",
+        url: urlApi + "/api?module=account&action=txlist&address=" + address + "&startblock=0&endblock=99999999&sort=desc&apikey=" + option_etherscan_api_key,
+        dataType: 'json',
+
+        success: function (d) {
+            var trans_table = $('#token_transaction').DataTable();
+            if (d.result) {
+                $('#token_transaction').find('tbody').empty();
+                d.result.forEach(element => {
+                    // if (element.from.toLowerCase() == address.toLowerCase() && element.to.toLowerCase() == erc20contract_address.toLowerCase()) {
+                        var tx_date = new Date(element.timeStamp * 1000);
+                        var etherscan_link = option_etherscan_api_tx + element.hash;    
+                        var tx_status = element.isError == "0" ? "Pass" : "Failed";
+                        var html_tr = 
+                        `<tr>
+                            <td><a target=_blank href="${etherscan_link}">${element.hash}</a></td>
+                            <td>${element.from}</td>
+                            <td>${element.to}</td>
+                            <td>${tx_date.toLocaleString()}</td>
+                            <td>${tx_status}</td>
+                        </tr>`
+                        trans_table.row.add([
+                            `<a target=_blank href="${etherscan_link}">${element.hash}</a>`,
+                            element.from,
+                            element.to,
+                            tx_date.toLocaleString(),
+                            tx_status
+                        ]).draw();
+
+                    // }                    
+                });
+            }
+        }
+    });
+}

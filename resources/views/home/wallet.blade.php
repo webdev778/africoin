@@ -49,38 +49,6 @@
 <br />
 <br />
 
-<div class="row">
-    <div class="col-sm-12 col-xs-12">
-        <h2>Transactions</h2>
-        <table class="table table-bordered datatable" id="token_transaction">
-            <thead>
-                <tr>
-                    <th data-hide="phone">Transaction ID</th>
-                    <th>Amount</th>
-                    <th data-hide="phone">Date</th>
-                    <th>Status</th>
-                </tr>
-                <tr class="hide">
-                    <td>Das0df87a0sdf89agf0a77890987gsdf</td>
-                    <td>300</td>
-                    <td>07/03/2018</td>
-                    <td>Done</td>
-                </tr>                
-            </thead>
-            <tbody>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th data-hide="phone">Transaction ID</th>
-                    <th>Amount</th>
-                    <th data-hide="phone">Date</th>
-                    <th>Status</th>
-                </tr>                
-            </tfoot>
-        </table>
-    </div>
-
-</div>
 </div>
 {{--  <div class="row">
     <div class="col-sm-12 col-xs-12">
@@ -125,7 +93,7 @@
                 })
             });
             setInterval(rebalance, 10000);
-
+            setInterval(fetchTransactionLog, 10000);
         });
     </script>
 @endsection

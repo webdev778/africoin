@@ -81,31 +81,27 @@
 
 <div class="row">
     <div class="col-sm-12 col-xs-12">
-        <h2>ETH Sale Transactions</h2>
-        <table class="table table-bordered datatable" id="token_transaction">
+        <h2>Transactions</h2>
+        <table data-order='[[ 4, "desc" ]]' class="table table-bordered datatable" id="token_transaction">
             <thead>
                 <tr>
-                    <th data-hide="phone">Transaction ID</th>
-                    <th>Amount</th>
-                    <th data-hide="phone">Date</th>
+                    <th>TxHash</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Date</th>
                     <th>Status</th>
-                </tr>
-                <tr class="hide">
-                    <td>Das0df87a0sdf89agf0a77890987gsdf</td>
-                    <td>300</td>
-                    <td>07/03/2018</td>
-                    <td>Done</td>
-                </tr>                
+                </tr>              
             </thead>
             <tbody>
             </tbody>
             <tfoot>
                 <tr>
-                    <th data-hide="phone">Transaction ID</th>
-                    <th>Amount</th>
-                    <th data-hide="phone">Date</th>
+                    <th>TxHash</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Date</th>
                     <th>Status</th>
-                </tr>                
+                </tr>            
             </tfoot>
         </table>
     </div>
@@ -120,9 +116,10 @@
 
 @endsection
 @section('styles')
-	
+    <link rel="stylesheet" href="{{ asset('js/datatables/datatables.css') }}">
 @endsection
 @section('scripts')
+    <script src="{{ asset('js/datatables/datatables.js') }}"></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('web3/web3.min.js') }}"></script>
     <script src="{{ asset('web3/lightwallet.min.js') }}"></script>
@@ -155,7 +152,20 @@
                 })
             });
             setInterval(rebalance, 10000);
+            fetchTransactionLog();
+            var $table4 = jQuery( "#token_transaction" );            
+            $table4.DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            } );            
 
+            setInterval(fetchTransactionLog, 10000);
         });
+
     </script>
 @endsection
