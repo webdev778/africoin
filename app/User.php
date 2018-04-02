@@ -15,7 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'affiliate_id', 'referred_by', 'eth_addr', 'eth_prev', 'eth_keystorage', 'eth_secretseed'
+        'name', 'email', 'password', 'affiliate_id', 'referred_by', 'eth_addr', 'eth_prev', 'eth_keystorage', 'eth_secretseed','user_type',
+        'company_id'
     ];
 
     /**
@@ -36,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+
+    public function isCompanyRegistered()
+    {
+        return !is_null($this->company_id);
+    }    
 }

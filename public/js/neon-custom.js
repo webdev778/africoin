@@ -1113,52 +1113,52 @@ var public_vars = public_vars || {};
 
 
 		// Form Wizard
-		if($.isFunction($.fn.bootstrapWizard))
-		{
-			$(".form-wizard").each(function(i, el)
-			{
-				var $this = $(el),
-					$progress = $this.find(".steps-progress div"),
-					_index = $this.find('> ul > li.active').index();
+		// if($.isFunction($.fn.bootstrapWizard))
+		// {
+		// 	$(".form-wizard").each(function(i, el)
+		// 	{
+		// 		var $this = $(el),
+		// 			$progress = $this.find(".steps-progress div"),
+		// 			_index = $this.find('> ul > li.active').index();
 
-				// Validation
-				var checkFormWizardValidaion = function(tab, navigation, index)
-					{
-			  			if($this.hasClass('validate'))
-			  			{
-							var $valid = $this.valid();
+		// 		// Validation
+		// 		var checkFormWizardValidaion = function(tab, navigation, index)
+		// 			{
+		// 	  			if($this.hasClass('validate'))
+		// 	  			{
+		// 					var $valid = $this.valid();
 
-							if( ! $valid)
-							{
-								$this.data('validator').focusInvalid();
-								return false;
-							}
-						}
+		// 					if( ! $valid)
+		// 					{
+		// 						$this.data('validator').focusInvalid();
+		// 						return false;
+		// 					}
+		// 				}
 
-				  		return true;
-					};
+		// 		  		return true;
+		// 			};
 
 
-				$this.bootstrapWizard({
-					tabClass: "",
-			  		onTabShow: function($tab, $navigation, index)
-			  		{
+		// 		$this.bootstrapWizard({
+		// 			tabClass: "",
+		// 	  		onTabShow: function($tab, $navigation, index)
+		// 	  		{
 
-						setCurrentProgressTab($this, $navigation, $tab, $progress, index);
-			  		},
+		// 				setCurrentProgressTab($this, $navigation, $tab, $progress, index);
+		// 	  		},
 
-			  		onNext: checkFormWizardValidaion,
-			  		onTabClick: checkFormWizardValidaion
-			  	});
+		// 	  		onNext: checkFormWizardValidaion,
+		// 	  		onTabClick: checkFormWizardValidaion
+		// 	  	});
 
-			  	$this.data('bootstrapWizard').show( _index );
+		// 	  	$this.data('bootstrapWizard').show( _index );
 
-			  	/*$(window).on('neon.resize', function()
-			  	{
-			  		$this.data('bootstrapWizard').show( _index );
-			  	});*/
-			});
-		}
+		// 	  	/*$(window).on('neon.resize', function()
+		// 	  	{
+		// 	  		$this.data('bootstrapWizard').show( _index );
+		// 	  	});*/
+		// 	});
+		// }
 
 
 
@@ -1795,45 +1795,45 @@ function callback_test()
 
 
 // Root Wizard Current Tab
-function setCurrentProgressTab($rootwizard, $nav, $tab, $progress, index)
-{
-	$tab.prevAll().addClass('completed');
-	$tab.nextAll().removeClass('completed');
+// function setCurrentProgressTab($rootwizard, $nav, $tab, $progress, index)
+// {
+// 	$tab.prevAll().addClass('completed');
+// 	$tab.nextAll().removeClass('completed');
 
-	var items      	  = $nav.children().length,
-		pct           = parseInt((index+1) / items * 100, 10),
-		$first_tab    = $nav.find('li:first-child'),
-		margin        = (1/(items*2) * 100) + '%';//$first_tab.find('span').position().left + 'px';
+// 	var items      	  = $nav.children().length,
+// 		pct           = parseInt((index+1) / items * 100, 10),
+// 		$first_tab    = $nav.find('li:first-child'),
+// 		margin        = (1/(items*2) * 100) + '%';//$first_tab.find('span').position().left + 'px';
 
-	if( $first_tab.hasClass('active'))
-	{
-		$progress.width(0);
-	}
-	else
-	{
-		if(rtl())
-		{
-			$progress.width( $progress.parent().outerWidth(true) - $tab.prev().position().left - $tab.find('span').width()/2 );
-		}
-		else
-		{
-			$progress.width( ((index-1) /(items-1)) * 100 + '%' ); //$progress.width( $tab.prev().position().left - $tab.find('span').width()/2 );
-		}
-	}
+// 	if( $first_tab.hasClass('active'))
+// 	{
+// 		$progress.width(0);
+// 	}
+// 	else
+// 	{
+// 		if(rtl())
+// 		{
+// 			$progress.width( $progress.parent().outerWidth(true) - $tab.prev().position().left - $tab.find('span').width()/2 );
+// 		}
+// 		else
+// 		{
+// 			$progress.width( ((index-1) /(items-1)) * 100 + '%' ); //$progress.width( $tab.prev().position().left - $tab.find('span').width()/2 );
+// 		}
+// 	}
 
 
-	$progress.parent().css({
-		marginLeft: margin,
-		marginRight: margin
-	});
+// 	$progress.parent().css({
+// 		marginLeft: margin,
+// 		marginRight: margin
+// 	});
 
-	/*var m = $first_tab.find('span').position().left - $first_tab.find('span').width() / 2;
+// 	/*var m = $first_tab.find('span').position().left - $first_tab.find('span').width() / 2;
 
-	$rootwizard.find('.tab-content').css({
-		marginLeft: m,
-		marginRight: m
-	});*/
-}
+// 	$rootwizard.find('.tab-content').css({
+// 		marginLeft: m,
+// 		marginRight: m
+// 	});*/
+// }
 
 
 // Replace Checkboxes

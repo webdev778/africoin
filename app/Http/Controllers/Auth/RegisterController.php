@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Http\Controllers\Auth\Request;
+use Log;
 
 class RegisterController extends Controller
 {
@@ -81,7 +82,8 @@ class RegisterController extends Controller
             'eth_addr' => $data['addr'],
             'eth_prev' => $data['prev_key'],
             'eth_keystorage' => $data['keystorage'],
-            'eth_secretseed' => $data['secretSeed']
+            'eth_secretseed' => $data['secretSeed'],
+            'user_type' => 'Supplier'
         ]);
  
         $verifyUser = VerifyUser::create([
@@ -97,12 +99,16 @@ class RegisterController extends Controller
     public function verifyUser($token)
     {
         $verifyUser = VerifyUser::where('token', $token)->first();
+        Log::info('-----------------verifyUser-----------------------');
         if(isset($verifyUser) ){
             $user = $verifyUser->user;
+            Log::info('-----------------verifyUser-----------------------');
+            Log::info($verifyUser);
             if(!$user->verified) {
                 $verifyUser->user->verified = 1;
                 $verifyUser->user->save();
-                $status = "Your e-mail is verified. You can now login in presale period.";
+                $status = "Your e-mail is verified. You can now login in the dashboard.";
+                $email = $verifyUser->user->email;
             // echo $this->from_referral_token;
             }else{
                 $status = "Your e-mail is already verified. You can now login.";
@@ -111,7 +117,7 @@ class RegisterController extends Controller
             return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
         }
  
-        return redirect('/login')->with('status', $status);
+        return redirect('/login')->with('status', $status)->with('email', $email);
     }
 
     public function referredUser($from_affiliate_id)

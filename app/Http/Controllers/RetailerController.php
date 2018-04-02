@@ -170,4 +170,16 @@ class RetailerController extends Controller
     {
         //
     }
+
+    /**
+     * Show retailer member create form
+     *
+     * @param  \App\Retailer  $retailer
+     * @return \Illuminate\Http\Response
+     */
+    public function member()
+    {
+        $data['retailers'] = Retailer::all();                                
+        return view('retailer.member', $data);
+    }     
 }

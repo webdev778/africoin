@@ -14,4 +14,9 @@ class PurchaseCoin extends Model
     {
         return $this->belongsTo('App\Retailer');
     }                               
+
+    public function supplier()
+    {
+        return $this->belongsTo('App\Supplier');
+    }                               
 }

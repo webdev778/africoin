@@ -1,5 +1,5 @@
-@extends('layouts.dashlayout')
-
+@extends('layouts.dashboard')
+@section('title', 'Edit Retailer')
 @section('content')
 <h2>Retailer Details</h2>
 <br />
@@ -163,4 +163,12 @@
     </div>
 </div>
 	
+@endsection
+@section('styles')	
+@endsection
+@section('scripts')
+<script src="{{ asset('js/jvectormap/jquery-jvectormap-europe-merc-en.js') }}"></script>
+<script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('js/fileinput.js') }}"></script>       
+
 @endsection

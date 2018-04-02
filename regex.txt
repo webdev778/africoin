@@ -2,3 +2,15 @@ Here are some patterns of regex to be used for replacing paths with Laravel synt
 
     href="assets\/([a-z\/\-0-9\.]+)"
     href="{{ asset('$1') }}"
+
+
+    // landing page
+
+    href="([a-z\/\-0-9\.]+)"
+    href="{{ asset('new_landing\$1') }}"
+
+    src="([a-z\/\-0-9\.]+)"
+    src="{{ asset('new_landing/$1') }}"
+
+    data-bg="([a-z\/\-0-9\.]+)"
+    data-bg="{{ asset('new_landing/$1') }}"

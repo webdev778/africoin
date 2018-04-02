@@ -40,28 +40,30 @@
                     </a>
                 </li>
 
-                @if (Auth::user()->user_type == "Supplier")
+                @if (Auth::user()->user_type == "Supplier" || Auth::user()->user_type == "Admin")
                 <li class="has-sub">
                     <a href="{{ route('PurchaseCoins.index') }}">
                         <i class="fa fa-dollar"></i>
                         <span class="title">Purchase</span>
                     </a>
                     <ul>
+                        @if (Auth::user()->user_type == "Supplier")
                         <li>
                             <a href="{{ route('PurchaseCoins.create') }}">
                                 <span class="title">Buy Token</span>
                             </a>
-                        </li>                        
+                        </li>        
+                        @endif                
                         <li>
                             <a href="{{ route('PurchaseCoins.index' )}}">
-                                <span class="title">History</span>
+                                <span class="title">Transactions</span>
                             </a>
                         </li>
                     </ul>
                 </li> 
                 @endif
 
-                @if (Auth::user()->isAdmin())
+                @if (Auth::user()->isAdmin() || Auth::user()->user_type == 'Retailer')
                 <li>
                     <a href="{{ route('wallet') }}">
                         <i class="fa fa-credit-card"></i>
@@ -69,12 +71,6 @@
                     </a>
                 </li>
                 @endif
-                <li>
-                    <a href="{{ route('account') }}">
-                        <i class="entypo-user"></i>
-                        <span class="title">Account</span>
-                    </a>
-                </li>
                 @if (Auth::user()->isAdmin())
                 <li class="has-sub">
                     <a href="{{ route('Retailers.index') }}">
@@ -92,9 +88,28 @@
                                 <span class="title">Registration</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('Retailers.member' )}}">
+                                <span class="title">Member</span>
+                            </a>
+                        </li>                        
                     </ul>
                 </li>
                 @endif
+                @if (Auth::user()->isAdmin())
+                <li>
+                    <a href="{{ route('Suppliers.index') }}">
+                        <i class="fa fa-truck"></i>
+                        <span class="title">Suppliers</span>
+                    </a>
+                </li>
+                @endif    
+                <li>
+                    <a href="{{ route('account') }}">
+                        <i class="entypo-user"></i>
+                        <span class="title">Account</span>
+                    </a>
+                </li>                            
                 <li>
                     <a href="{{ route('support') }}">
                         <i class="fa fa-support"></i>

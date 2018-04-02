@@ -15,14 +15,14 @@ Route::model('Retailer', App\Retailer::class);
 Route::model('PurchaseCoin', App\PurchaseCoin::class);
 
 Route::get('/', function () {
-    return view('welcome3');
+    return view('welcome4');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('supplier');
 Route::get('/tokensale', 'TokensaleController@index')->name('token_sale');
-Route::get('/wallet', 'WalletController@index')->name('wallet')->middleware('auth', 'admin');
+Route::get('/wallet', 'WalletController@index')->name('wallet')->middleware('auth');
 Route::get('/account', 'AccountController@index')->name('account');
 Route::get('/support', 'SupportController@index')->name('support');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
@@ -38,5 +38,10 @@ Route::resource('PurchaseCoins', 'PurchaseCoinController');
 
 Route::post('/wallet/send-token/', 'WalletController@sendToken')->name('send-token');
 Route::get('/product/barcode', 'ProductController@getProductInfoByBarcode')->name('getProductInfoByBarcode');
+Route::resource('Suppliers', 'SuppliersController');
 
+Route::get('/PurchaseCoins/admin', 'PurchaseCoinController@admin')->name('PurchaseCoin.admin');
+Route::post('/PurchaseCoins/approve', 'PurchaseCoinController@approve')->name('PurchaseCoin.approve');
 
+Route::get('/Retailers.member', 'RetailerController@member')->name('Retailers.member');
+Route::post('/Retailers.member', 'RetailerMemberController@register')->name('RetailerMembers.register');

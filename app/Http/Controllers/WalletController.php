@@ -24,7 +24,9 @@ class WalletController extends Controller
      */
     public function index()
     {
-        //
+        if(auth()->user()->isAdmin())
+            return view('home/admin_wallet');
+
         return view('home/wallet');
     }
 

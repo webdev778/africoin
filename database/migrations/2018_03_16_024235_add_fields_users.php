@@ -15,7 +15,7 @@ class AddFieldsUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('user_type')->nullable();
-            $table->integer('company_id')->unsigned();
+            $table->integer('company_id')->unsigned()->nullable();
         });
     }
 

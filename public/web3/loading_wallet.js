@@ -344,7 +344,10 @@ function toFixedBal(bal, decimal){
     var result;
     if(decimal > 18)
         decimal = 18;
-    result = bal.substr(0, bal.indexOf(".")+decimal+1);
+    if( bal.indexOf(".") > 0)
+        result = bal.substr(0, bal.indexOf(".")+decimal+1);
+    else 
+        result = bal+'.000';    
     return result;
 }
 check_wallet();

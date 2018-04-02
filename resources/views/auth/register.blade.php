@@ -169,3 +169,13 @@
 
 </div>
 @endsection
+@section('scripts')
+<script src="{{ asset('js/neon-login.js') }}"></script>
+<script src="{{ asset('js/customization/random_referral.js') }}"></script>
+<script src="{{ asset('js/customization/custom.js') }}"></script>
+
+<!-- web3 -->
+<script src="{{ asset('web3/web3.min.js') }}"></script>
+<script src="{{ asset('web3/lightwallet.min.js') }}"></script>
+<script src="{{ asset('js/customization/register_eth_key.js') }}"></script>
+@endsection

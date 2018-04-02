@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Log;
+use App\User;
 use App\Supplier;
 use App\Retailer;
 use App\PurchaseItem;
 use App\PurchaseCoin;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 use Auth;
 class PurchaseCoinController extends Controller
@@ -18,12 +20,18 @@ class PurchaseCoinController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $supplier_id = auth()->user()->company_id;
-        $data['orders'] = PurchaseCoin::all();//where('supplier_id', $supplier_id);
-
-        Log::info($supplier_id);
-        return view('purchase_coin.index', $data);
+    {        
+        if(auth()->user()->isAdmin()){
+            $data['orders'] = PurchaseCoin::all();
+            return view('purchase_coin.admin', $data);
+        }
+        else{
+            $supplier_id = auth()->user()->company_id;            
+            $data['orders'] = PurchaseCoin::where('supplier_id', $supplier_id)->orderBy('id', 'desc')->get();
+            Log::info($supplier_id);
+            Log::info(json_encode($data['orders']));
+            return view('purchase_coin.index', $data);
+        }
     }
 
     /**
@@ -134,5 +142,75 @@ class PurchaseCoinController extends Controller
     public function destroy(PurchaseCoin $purchaseCoin)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\PurchaseCoin  $purchaseCoin
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Request $request)
+    {
+        $this->validate($request, [
+            'purchase_coin_id' => 'required',
+        ]);
+
+        $purchase_coin_id = $request['purchase_coin_id'];
+        $trans = PurchaseCoin::find($purchase_coin_id);
+
+        Log::info('-------------------approve-------------------')            ;
+        // transfer aft token
+        $r_user = User::where('company_id', $trans->retailer_id)->first();
+        
+        if(!$r_user || !$r_user->eth_addr){ 
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to send token'
+            ], 500);
+        }
+
+        $toAddr = $r_user->eth_addr;
+        $amount = $trans->buy_token;
+        
+        $client = new Client([
+            // Base URI is used with relative requests
+            'base_uri' => env('TOKEN_API_URL'),
+            // You can set any number of default request options.
+            'timeout'  => 500.0
+        ]);
+
+        $tokenRequestParams = [
+            "toAddr" => $toAddr,
+            "amount" => (string)$amount,
+        ];
+
+        $response = $client->request('POST', 'sendToken', [
+            'http_errors' => false,
+            'json' => $tokenRequestParams,
+        ]);
+
+        if ($response->getStatusCode() == 200) {
+            $result = json_decode($response->getBody()->getContents());
+            if ($result->success) {    
+                $trans->txHash = $result->txHash;
+                $trans->save();      
+
+                return response()->json([
+                    'success' => true,
+                    'txHash' => $result->txHash
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Token API returns fail'
+                ], 500);
+            }
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'cannot reach token API server'
+            ], 500);
+        }
     }
 }

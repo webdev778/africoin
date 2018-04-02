@@ -20,22 +20,46 @@ var neonRegister = neonRegister || {};
 		
 		neonRegister.$container.validate({
 			rules: {
-				name: {
+				'company-name': {
+					required: true
+				},
+
+				'street-address': {
 					required: true
 				},
 				
-				email: {
-					required: true,
-					email: true
-				},
-				
-				username: {
-					required: true	
-				},
-				
-				password: {
+				'street-code': {
 					required: true
 				},
+
+				'postal-address': {
+					required: true
+				},
+
+				'postal-code': {
+					required: true
+				},
+
+				'registration-no': {
+					required: true
+				},
+
+				phone: {
+					required: true
+				},
+
+				// email: {
+				// 	required: true,
+				// 	email: true
+				// },
+				
+				// username: {
+				// 	required: true	
+				// },
+				
+				// password: {
+				// 	required: true
+				// },
 				
 			},
 			
@@ -66,18 +90,20 @@ var neonRegister = neonRegister || {};
 					// Lets move to 98%, meanwhile ajax data are sending and processing
 					neonRegister.setPercentage(98, function()
 					{
+						baseurl = "http://localhost:8000/";
 						// Send data to the server
 						$.ajax({
-							url: baseurl + 'data/sample-register-form.php',
+							url: baseurl + 'Suppliers',
 							method: 'POST',
 							dataType: 'json',
 							data: {
-								name: 		$("input#name").val(),
-								phone: 		$("input#phone").val(),
-								birthdate: 	$("input#birthdate").val(),
-								username: 	$("input#username").val(),
-								email: 		$("input#email").val(),
-								password:	$("input#password").val()
+								name: 		$("input#company-name").val(),
+								company_registration_no: 	$("input#registration-no").val(),
+								phone: 	$("input#phone").val(),
+								street_address: 	$("input#street-address").val(),
+								street_code: 		$("input#street-code").val(),
+								postal_address:	$("input#postal-address").val(),
+								postal_code:	$("input#postal-code").val(),
 							},
 							error: function()
 							{
@@ -86,12 +112,12 @@ var neonRegister = neonRegister || {};
 							success: function(response)
 							{
 								// From response you can fetch the data object retured
-								var name = response.submitted_data.name,
-									phone = response.submitted_data.phone,
-									birthdate = response.submitted_data.birthdate,
-									username = response.submitted_data.username,
-									email = response.submitted_data.email,
-									password = response.submitted_data.password;
+								// var name = response.submitted_data.name,
+								// 	phone = response.submitted_data.phone,
+								// 	birthdate = response.submitted_data.birthdate,
+								// 	username = response.submitted_data.username,
+								// 	email = response.submitted_data.email,
+								// 	password = response.submitted_data.password;
 								
 								
 								// Form is fully completed, we update the percentage

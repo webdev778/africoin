@@ -11,7 +11,7 @@
 			<h4>Please purchase AFRICOINs with your preferred payment method.</h4>
 		</div>
 		
-		<form id="rootwizard-2" method="post" action="" class="form-wizard validate">
+		<div id="rootwizard-2" class="form-wizard">
 			
 			<div class="steps-progress">
 				<div class="progress-indicator"></div>
@@ -25,11 +25,11 @@
 					<a href="#tab2-2" data-toggle="tab"><span>2</span>Scan & Discount</a>
 				</li>
 				<li>
-					<a href="#tab2-3" data-toggle="tab"><span>3</span>Checkout</a>
+					<a href="#tab2-3" data-toggle="tab"><span>3</span>Contract</a>
 				</li>
-				<li>
+				{{--  <li>
 					<a href="#tab2-4" data-toggle="tab"><span>4</span>Invoice</a>
-				</li>
+				</li>				  --}}
 			</ul>
 			
 			<div class="tab-content">
@@ -54,9 +54,66 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-md-offset-3 col-md-6">
-							<img id="retailer_logo" src="http://placehold.it/200x150"  alt="...">
+					<div class="row">															
+						<div class="col-md-4">
+							<div class="panel panel-gradient" data-collapsed="0"> 
+								<!-- panel head --> 
+								<div class="panel-heading"> 
+									<div class="panel-title">Info</div> 
+								</div>
+								<!-- panel body --> 
+								<div class="panel-body">
+									<p>Would you like to make a new contract with the company below? </p>
+									<span style="display:flex">
+									<img id="retailer_logo" src="http://placehold.it/200x150"  alt="...">
+									<div class="retailer_breif" style="margin-left:20px">
+										<h3> Spar </h2>
+										<p> Last Contract : 2018.03.25 </p>
+										<p> Deployed : 35,000 AFT </p>				
+									</div>
+									</span>
+								</div>
+							</div>
+						</div>		
+						<div class="col-md-8">
+							<div class="panel panel-gradient" style="height:500px" data-collapsed="0"> 
+								<!-- panel head --> 
+								<div class="panel-heading"> 
+									<div class="panel-title">Recent Contracts</div> 
+								</div>
+								<!-- panel body --> 
+								<div class="panel-body">
+									<p>The table below shows the contract data for the last 10 days.</p>
+									
+									<h4>Contracts</h4>
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>Date</th>
+												<th>AFT</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>1</td>
+												<td>28/03/2018</td>
+												<td><a href="#">1000 AFT</a></td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td>29/03/2018</td>
+												<td><a href="#">1,200 AFT</a></td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td>30/03/2018</td>
+												<td><a href="#">2,500 AFT</a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 					</div>
 										
@@ -65,169 +122,307 @@
 				<div class="tab-pane" id="tab2-2">
 					<div class="row">
 						<div class="col-md-4">
-							<div class="row">						
-								<div class="col-md-12">
-									<div class="form-group">
-										<label class="control-label" for="product_barcode">Barcode</label>
-										
-										<div class="input-group">							
-											<input id="txt_barcode" type="text" class="form-control">
+							<div class="panel panel-gradient" data-collapsed="0" style="    height: 700px;">
+								<!-- panel head -->
+								<div class="panel-heading">
+									<div class="panel-title">Add Product</div>
+									<div class="panel-options"> <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a> <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a> <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a> <a href="#" data-rel="close"><i class="entypo-cancel"></i></a> </div>
+								</div>
+								<!-- panel body -->
+								<div class="panel-body">
+										<p> You will be able to use your qrcode & barcorde reader to read product's item connecting to your pc in the future. this will be coming soon. </p>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="barcode_container">
+													<img src="{{ asset('images\qrcode.jpg') }}"  alt="...">
+												</div>
+											</div>
+										</div>								
 			
-											<span class="input-group-btn">
-												<button id="btn_scan" class="btn btn-success" type="button">Scan</button>
-											</span>
+										<div class="row">						
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="control-label" for="product_barcode" style="font-size: 24pt;height: 45px;">Manual Input</label>
+													
+													<input id="txt_barcode" type="text" class="form-control">											
+												</div>
+												<div class="form-group center" style="text-align:center" >
+													<button id="btn_scan" class="btn btn-primary" type="button" style="font-size: 30pt"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;&nbsp;Read</button>
+												</div>
+											</div>
+										</div>			
+										
+								</div>
+							</div>
+																				
+						</div>
+						<div class="col-md-4">
+
+								<div class="row">
+									<div class="col-md-12">
+	
+										<!-- recent product list -->
+										<div class="panel panel-gradient" data-collapsed="0" style="height: 398px;">
+												<!-- panel head -->
+												<div class="panel-heading">
+													<div class="panel-title">Item Info</div>
+													<div class="panel-options"> <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a> <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a> <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a> <a href="#" data-rel="close"><i class="entypo-cancel"></i></a> </div>
+												</div>
+												<!-- panel body -->
+												<div class="panel-body">																										
+													<div class="row">
+														<div class="col-md-12">
+															<div class="product_img">
+																<img id="img_product" src="http://placehold.it/200x150" alt="...">									
+																<p id="product_name" style="font-size:48pt">###</p>
+															</div>														
+														</div>
+													</div>
+												</div>
 										</div>
 									</div>
 								</div>
-							</div>					
-												
+																	
 							<div class="row">
 								<div class="col-md-12">
-									<div class="barcode_container">
-										<img src="{{ asset('barcodes\bc_39.png') }}"  alt="...">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="product_img">
-								<img id="img_product" src="http://placehold.it/200x150" alt="...">									
-							</div>						
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<label class="control-label " for="product_name">Product Name</label>
-								<input class="form-control" id="product_name" name="product_name" data-validate="require" placeholder="Whisky">
-							</div>
-							<div class="form-group">
-								<label class="control-label " for="product_price">Price</label>
-								<input class="form-control" id="product_price" name="product_price" data-validate="require" placeholder="R75.00">
-							</div>						
-						</div>
-					</div>
 
-					<br />
-							
-					<a href="javascript: fnClickAddRow();" class="btn btn-primary">
-						<i class="entypo-plus"></i>
-						Add Item
-					</a>
-															
-					<br />
-					<br />
+									<!-- recent product list -->
+									<div class="panel panel-gradient" data-collapsed="0" style="height: 285px;">
+											<!-- panel head -->
+											<div class="panel-heading">
+												<div class="panel-title">Find Products</div>
+												<div class="panel-options"> <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a> <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a> <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a> <a href="#" data-rel="close"><i class="entypo-cancel"></i></a> </div>
+											</div>
+											<!-- panel body -->
+											<div class="panel-body">
+													<!-- search product -->
+													<div class="form-group">
+														<label class="control-label">Here, you can find a item in the previous contracts</label>
+						
+														<select id="select2_item_history" name="select2_item_history" class="select2" data-allow-clear="true" data-placeholder="Find Items...">
+															<option></option>
+															<optgroup label="South Africa">
+																@foreach ($retailers as $retailer)
+															<option value="{{$retailer->id}}" data-logo-attribute="{{ asset('storage/'.$retailer->logo_file) }}">{{$retailer->name}}</option>
+																@endforeach
+															</optgroup>
+														</select>
+						
+													</div>
+													<!-- search product -->																									
+													<div class="form-group" style="text-align: center">
+														<button type="button" class="btn btn-primary" style=" margin-top: 20px"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;Add to Cart</button>
+													</div>														
+													<!-- recent history end -->
+											</div>
+									</div>	
 
-					<h3>Product Items</h3>
-					<div class="table-cart">
-							<table class="table" id="table-items">
-								<thead>
-									<tr>
-										<th class="itemRemove"></th>
-										<th class="itemImage"></th>
-										<th class="itemName">Name</th>										
-										<th class="itemQuantity">Quantity</th>
-										<th class="itemDiscount">Discount per Unit</th>																				
-										<th class="itemAFT">AFT/ZAR</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="hide">
-										<td class="itemNo hidden">
-											
-										</td>
-										<td class="itemRemove">
-											<a>
-												<i class="ion-android-close"></i>
-											</a>
-										</td>
-										<td class="itemImage">
-											<a href="#">
-												<img src="{{ asset('products\10835\m_5975ad8179309.jpg') }}" alt="" width="40" class="img-rounded" />
-											</a>
-										</td>
-										<td class="itemName">Item1</td>										
-										<td class="itemQuantity">											
-											<input type="number" min="1" max="9999" step="1" class="form-control size-1" value="0" />
-										</td>
-										<td class="itemDiscount">
-											<input type="number" min="1" max="9999" step="1" class="form-control size-1" value="0" />
-										</td>
-										<td class="itemAFT">
-											<span>0</span>&nbsp;AFT
-										</td>				
-									</tr>										
-								</tbody>
-								<tbody class="cart-list">							
-									{{--  <tr>
-										<td class="itemNo hidden">
-											
-										</td>										
-										<td class="itemRemove">
-											<a>
-												<i class="ion-android-close"></i>
-											</a>
-										</td>
-										<td class="itemImage">
-											<a href="#">
-												<img src="{{ asset('products\10835\m_5975ad8179309.jpg') }}" alt="" width="40" class="img-rounded" />
-											</a>
-										</td>
-										<td class="itemName">Item1</td>										
-										<td class="itemQuantity">											
-											<input type="number" min="1" max="9999" step="1" class="form-control size-1" value="0" />
-										</td>
-										<td class="itemDiscount">
-											<input type="number" min="1" max="9999" step="1" class="form-control size-1" value="0" />
-										</td>
-										<td class="itemAFT">
-											<span>0</span>&nbsp;AFT
-										</td>				
-									</tr>																													  --}}
-								</tbody>
-								<tbody>
-									<tr class="totalBill">
-										<td class="itemRemove">										
-										</td>
-										<td class="itemImage">										
-										</td>
-										<td class="itemName"></td>
-										<td class="itemQuantity"></td>
-										<td class="itemDiscount"></td>
-										<td class="itemAFT">
-											<table>
-												<tr>
-													<td>Total:</td>
-													<td><span id="totalAFT">0</span>&nbsp;ZAR</td>
-												</tr>
-												<tr>
-													<td>Fee(+5%):</td>
-													<td><span id="feeBill">0</span>&nbsp;ZAR</td>
-												</tr>
-												<tr>
-													<td>Grand Total:</td>
-													<td><span id="grandBill">0</span>&nbsp;ZAR</td>
-												</tr>
-											</table>
+									<!-- recent product list end -->
+								</div>									
+							</div>
+																		
+						</div>
+
+						<div class="col-md-4">
+
+								<!-- cart list -->
+								<div class="row">
+									<div class="col-md-12">
+										<div class="panel panel-gradient" style="height: 700px;" data-collapsed="0">
+												<!-- panel head -->
+												<div class="panel-heading">
+													<div class="panel-title">Cart</div>
+													<div class="panel-options"> <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a> <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a> <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a> <a href="#" data-rel="close"><i class="entypo-cancel"></i></a> </div>
+												</div>
+												<!-- panel body -->
+												<div class="panel-body">
+													<div class="form-group">
+															<h3>Added Items</h3>
+
+															<div class="form-group form-horizontal">
+																<label class="control-label col-sm-3">Total</label>
+																<div for="cart_total" class="col-sm-5">
+																	<input type="text" id="cart_total" class="form-control" disabled value="7"></input>
+																</div>
+															</div>
+															<br><br>
+															<div class="row" style="text-align: right">
+																<div class="col-xs-12">
+																	<button type="button" class="btn btn-primary"> <i class="entypo-trash"></i> </button>
+																</div>
+															</div>
+															<br>
+															<table class="table table-bordered table-striped datatable" id="table-selected">
+																<thead>
+																	<tr>
+																		<th>
+																			<div class="checkbox checkbox-replace">
+																				<input type="checkbox" id="chk-1">
+																			</div>
+																		</th>
+																		<th>#</th>
+																		<th>Item Name</th>
+																		<th>Photo</th>
+																		<th>Actions</th>
+																	</tr>
+																	<tr class="hide">
+																		<td>
+																			<div class="checkbox checkbox-replace">
+																				<input type="checkbox" id="chk-1">
+																			</div>
+																		</td>
+																		<td class="item-no">
+																				1
+																		</td>
+																		<td class="item-name">Butter</td>
+																		<td class="item-pic"><img src="{{ asset('images\qrcode.jpg') }}"  alt="..."></td>
+																		<td class="item-action">
+																			
+																			<a class="btn btn-danger btn-sm btn-icon icon-left">
+																				<i class="entypo-cancel"></i>
+																				Delete
+																			</a>
+
+																		</td>
+																	</tr>																		
+																</thead>
+																
+																<tbody>
+																																																																																			
+																</tbody>
+
+															</table>	
+																	
+													</div>
+												</div>
 										</div>
-										</td>
-									</tr>																											
-								</tbody>
-							</table>	
-							
-							<div class="row">
-								<div class="col-sm-12">
-									<a href="javascript: order_token();" class="btn btn-primary">
-										<i class="entypo-suitcase"></i>
-										Order
-									</a>
+									</div>										
 								</div>
-							</div>
+								<!-- cart list end-->
+
+						</div>						
 					</div>
-									
+																														
 				</div>
 				
 				<div class="tab-pane" id="tab2-3">
-					
 					<div class="row">
+						<a href="javascript: fnClickAddRow();" class="btn btn-primary hide">
+							<i class="entypo-plus"></i>
+							Add Item
+						</a>
+																	
+						<br />
+						<br />
+
+						<h3>Product Items</h3>
+						<div class="table-cart">
+								<table class="table" id="table-items">
+									<thead>
+										<tr>
+											<th class="itemRemove"></th>
+											<th class="itemImage"></th>
+											<th class="itemName">Name</th>										
+											<th class="itemQuantity">Quantity</th>
+											<th class="itemDiscount">Discount per Unit</th>																				
+											<th class="itemAFT">AFT/ZAR</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="hide">
+											<td class="itemNo hidden">
+												
+											</td>
+											<td class="itemRemove">
+												<a>
+													<i class="ion-android-close"></i>
+												</a>
+											</td>
+											<td class="itemImage">
+												<a href="#">
+													<img src="{{ asset('products\10835\m_5975ad8179309.jpg') }}" alt="" width="40" class="img-rounded" />
+												</a>
+											</td>
+											<td class="itemName">Item1</td>										
+											<td class="itemQuantity">											
+												<input type="number" min="1" max="999999" step="1" class="form-control size-1" value="1" data-validate="required, range[1,999999]"/>
+											</td>
+											<td class="itemDiscount">
+												<input type="number" min="1" max="999" step="1" class="form-control size-1" value="1" />
+											</td>
+											<td class="itemAFT">
+												<span>0</span>&nbsp;AFT
+											</td>				
+										</tr>										
+									</tbody>									
+									<tbody class="cart-list">							
+										{{--  <tr>
+											<td class="itemNo hidden">
+												
+											</td>										
+											<td class="itemRemove">
+												<a>
+													<i class="ion-android-close"></i>
+												</a>
+											</td>
+											<td class="itemImage">
+												<a href="#">
+													<img src="{{ asset('products\10835\m_5975ad8179309.jpg') }}" alt="" width="40" class="img-rounded" />
+												</a>
+											</td>
+											<td class="itemName">Item1</td>										
+											<td class="itemQuantity">											
+												<input type="number" min="1" max="9999" step="1" class="form-control size-1" value="0" />
+											</td>
+											<td class="itemDiscount">
+												<input type="number" min="1" max="9999" step="1" class="form-control size-1" value="0" />
+											</td>
+											<td class="itemAFT">
+												<span>0</span>&nbsp;AFT
+											</td>				
+										</tr>																													  --}}
+									</tbody>
+									<tbody>
+										<tr class="totalBill">
+											<td class="itemRemove">										
+											</td>
+											<td class="itemImage">										
+											</td>
+											<td class="itemName"></td>
+											<td class="itemQuantity"></td>
+											<td class="itemDiscount"></td>
+											<td class="itemAFT">
+												<table>
+													<tr>
+														<td>Total:</td>
+														<td><span id="totalAFT">0</span>&nbsp;ZAR</td>
+													</tr>
+													<tr>
+														<td>Fee(+5%):</td>
+														<td><span id="feeBill">0</span>&nbsp;ZAR</td>
+													</tr>
+													<tr>
+														<td>Grand Total:</td>
+														<td><span id="grandBill">0</span>&nbsp;ZAR</td>
+													</tr>
+												</table>
+											</div>
+											</td>
+										</tr>																											
+									</tbody>
+								</table>	
+								
+								<div class="row">
+									<div class="col-sm-12">
+										<a href="javascript: $('#modal-4').modal('show', {backdrop: 'static'});" class="btn btn-primary">
+											<i class="entypo-suitcase"></i>
+											Order
+										</a>
+									</div>
+								</div>
+						</div>						
+					</div>
+					<div class="row hide">
 						<div class="col-md-offset-3 col-md-6 form-horizontal">							
 							<div class="form-group">
 								<label class="col-sm-3 control-label" for="company-name">Company Name</label>
@@ -705,13 +900,7 @@
 						</div>
 
 				</div>
-				
-				<div class="tab-pane" id="tab2-5">
-					
-					
-										
-				</div>
-				
+								
 				<ul class="pager wizard">
 					<li class="previous">
 						<a href="#"><i class="entypo-left-open"></i> Previous</a>
@@ -723,9 +912,33 @@
 				</ul>
 			</div>
 		
-		</form>   
+		</div>   
     </div>
 </div>
+
+<!-- Modal 4 (Confirm)-->
+<div class="modal fade" id="modal-4" data-backdrop="static">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			
+			<div class="modal-header">
+				<h4 class="modal-title">Confirm Modal</h4>
+			</div>
+			
+			<div class="modal-body">
+			
+				Are you sure to make a new contract?
+				
+			</div>
+			
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal" onclick="request_contract()">OK</button>
+				<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 @endsection
 @section('styles')
 	<link rel="stylesheet" href="{{ asset('js/datatables/datatables.css') }}">
@@ -735,6 +948,24 @@
 	<link rel="stylesheet" href="{{ asset('js/zurb-responsive-tables/responsive-tables.css') }}">
 	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" herf="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<style>
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}		
+	</style>
 @endsection
 @section('scripts')
 	{{--  <script src="{{ asset('js/datatables/datatables.js') }}"></script>  --}}
@@ -749,70 +980,19 @@
 	<script src="{{ asset('js/neon-chat.js') }}"></script>
 	<script src="{{ asset('js/fileinput.js') }}"></script>       
 	<script src="{{ asset('js/zurb-responsive-tables/responsive-tables.js') }}"></script>
-
+	<script src="{{ asset('js/toastr.js') }}"></script>
+	<script src="{{ asset('js/purchase_token.js') }}"></script>		
+	
 	<script>
-
-		$(document).ready(function(){
-			
-			// Select2 setup
-			var $this = $('#select2_retailer'),
-				opts = {
-					allowClear: attrDefault($this, 'allowClear', false)
-				};
-			
-			$this.select2(opts);
-			$this.addClass('visible');
-
-			// Bind an event
-			$this.on('change', function (e) { 			
-				var logo_url = $('#select2_retailer').find(':selected').data('logo-attribute');
-				$("#retailer_logo").attr('src', logo_url);
-				
-			});
-
-			// Quantity Change Event
-			$(".table-cart .itemQuantity > :input").on('input', function(e){
-				var item_quantity = $(this).val();
-				// var item_price =   parseFloat($(this).parent().siblings(".itemPrice").children("span").text());
-					
-				var item_discount=parseInt($(this).parent().siblings(".itemDiscount").children("input").val());
-				var item_total_aft = item_discount * item_quantity;
-				// var item_total = item_price * item_quantity;
-				// console.log(item_total + ' ' + item_total_aft);
-				
-				// $(this).parent().siblings(".itemTotal").children("span").text(item_total.toFixed(2));
-				$(this).parent().siblings(".itemAFT").children("span").text(item_total_aft);
-				updateGrandTotal();
-			});
-
-			// Discount Change Event
-			$(".table-cart .itemDiscount > :input").on('input', function(e){
-				var item_discount = $(this).val();
-				var item_quantity=parseInt($(this).parent().siblings(".itemQuantity").children("input").val());
-				// var item_price =  parseFloat($(this).parent().siblings(".itemPrice").children("span").text());
-					
-				var item_total_aft = item_discount * item_quantity;
-				// var item_total = item_price * item_quantity;
-				// console.log(item_total + ' ' + item_total_aft);
-				
-				// $(this).parent().siblings(".itemTotal").children("span").text(item_total.toFixed(2));
-				$(this).parent().siblings(".itemAFT").children("span").text(item_total_aft);
-
-				updateGrandTotal();
-			});
-
-			// Remote Item
-			$('.itemRemove a').click(function () {
-				$(this).parents('tr').detach();
-				updateGrandTotal();
-			});
-
+		$(function(){
 			// Barcode Scan
 			$('#btn_scan').click(function () {
 				var barcode = $('#txt_barcode').val();
 
 				if(!barcode || barcode.length != 3){
-					alert('barcode read error!');
+					toastr.warning('Please input barcode information', null, warning_opts);
+					$('#txt_barcode').empty();
+					$('#txt_barcode').focus();
 					return;
 				}
 
@@ -827,136 +1007,134 @@
 						}
 
 						if(product.name)
-							$("#product_name").val(product.name);
+							$("#product_name").text(product.name);
 
 						if(product.pic_path){
-							$('#img_product').attr('src', "{{ asset('storage/') }}/" + product.pic_path);
+							$('#img_product').removeClass('fade-in');
+							setTimeout(function(){								
+								$('#img_product').attr('src', "{{ asset('storage/') }}/" + product.pic_path);
+								$('#img_product').addClass('fade-in');								
+								
+							}, 700);
+							
 							
 							// animate
 						}
 
-						//
-						$("tr.hide td.itemNo").text(product.id);
-						$("tr.hide .itemImage").find("img").attr('src', "{{ asset('storage/') }}/" + product.pic_path);
-						$("tr.hide td.itemName").text(product.name);
+						setCurItem(product.id, product.name, "{{ asset('storage/') }}/" + product.pic_path);
+						
+						// check exist if it's in the list.
+						if(isExist()) {
+							toastr.info('Already added');
+							return;
+						}						
 
+						add_item();
+						addProduct2TempList();	
 					},
 					'json'
 				).fail(function(res){
 					console.log(res);
-					alert('Failed to get product info from server!');
+					toastr.warning("Failed to get product info from server!", null, warning_opts);
 				});
-			});
+			});	
+
+			function addProduct2TempList(){
+				// append row to the "table-selected"
+				var tableSelected = $("#table-selected");
+
+				// get item list of cart
+				// var itemId = tableSelected.find('tr.hide').find('td.itemNo').text();
+
+
+				// add row
+				$("#table-selected tr.hide td.item-no").text(items_selected.length);
+				$("#table-selected tr.hide td.item-pic").find("img").attr('src', cur_item.img_url);
+				$("#table-selected tr.hide td.item-name").text(cur_item.name);
+
+				var $clone = tableSelected.find('tr.hide').clone(true).removeClass('hide');
+				tableSelected.find('tbody').append($clone);
+
+				// update total
+				updateTotal();				
+			}		
+
 		});
 				
-		function fnClickAddRow(){
-			var tableCart = $(".table-cart");
-
-			// get item list of cart
-			var itemId = tableCart.find('tr.hide').find('td.itemNo').text();
+		function request_contract(){
+			// validate data
+			if(!g_retailer_id || !items_selected.length){
+				return;
+			}
 			
+			// for (let item of items_selected) {
+			// 	if(item.quantity == 0 || item.discount == 0)
+			// 	{
+			// 		toastr.warning('Please input quantity or discount', null, warning_opts);
+			// 		return;
+			// 	}
+			// }
+			
+			// check quantity and discount inputs
+			var $inputs = $(".cart-list td input");
 
-			// add row
-			var $clone = tableCart.find('tr.hide').clone(true).removeClass('hide');
-			tableCart.find('table tbody.cart-list').append($clone);
-
-			updateGrandTotal();
-		}
-
-		function updateGrandTotal(){
-			// calcTotal();
-			calcAFT();
-		}
-		function calcTotal(){
-			var totalBill = 0;
-			$('.cart-list td.itemTotal').each(function(){
-				var value = $(this).find("span").text();
-				if(!isNaN(value) && value.length != 0) {
-					totalBill += parseFloat(value);
+			for (let i=0; i < $inputs.length; i ++ ){
+								
+				if( parseInt($($inputs[i]).val()) < 1)
+				{
+					toastr.warning('Please input quantity or discount', null, warning_opts);
+					$($inputs[i]).focus();
+					$($inputs[i]).select();
+					return;
 				}
-			});
-			
-			console.log(totalBill);
-			$('tr.totalBill .itemTotal span').text(totalBill);
-		}
+			}
 
-		function calcAFT(){
-			var totalAFT = 0
-			$('.cart-list td.itemAFT').each(function(){
-				var value = $(this).find("span").text();
-				if(!isNaN(value) && value.length != 0) {
-					totalAFT += parseInt(value);
-				}
-			});
-			fee = totalAFT * 0.05;
-			grand = totalAFT + fee;
-			
-			console.log('test------------');
-			console.log(totalAFT);
-			$('#totalAFT').text(displayAFT(totalAFT));
-			$('#feeBill').text(displayAFT(fee));
-			$('#grandBill').text(displayAFT(grand));
-		}
 
-		function displayAFT(m) {
-			return m.toFixed(2);
-		}
 
-		function order_token() {
-
-			// to get retailer id
-			var retailer_id;
-			retailer_id = $('#select2_retailer').val();
-
-			// to get cart list
+			// item data
 			var cart_list_data = [];
-			var cartListObj = $(".table-cart .cart-list").find("tr");
-			cartListObj.each(function(i, tr){
-				var cart_item = {
-					item_id : 0,
-					item_quantity : 0,
-					item_discount : 0
+			cart_list_data = jQuery.map(items_selected, function(item){				
+				return {
+					item_id : item.id,
+					item_quantity : parseInt(item.quantity),
+					item_discount : parseInt(item.discount)
 				};
-				$this = $(tr);
-				cart_item.item_id =$this.find('.itemNo').text();
-				cart_item.item_quantity = $this.find('td.itemQuantity input').val();
-				cart_item.item_discount = $this.find('td.itemDiscount input').val();
-				cart_list_data[i] = cart_item;
 			});
 
-			//console.log(cart_list_data);
-			
+			// total calc
 			var totalAFT=0, fee=0, grandTotal=0;
-			$.each(cart_list_data, function(i, cart_item){
-				totalAFT += cart_item.item_quantity * cart_item.item_discount;
+			$.each(cart_list_data, function(i, item){			
+				totalAFT += item.item_quantity * item.item_discount;
 			});
 
 			fee = totalAFT * 0.05;
 			grandTotal = totalAFT + fee;
 
-			var order_data = 
+			var contract_data = 
 			{
-				'retailer_id' : retailer_id,
+				'retailer_id' : g_retailer_id,
 				'cart_count' : cart_list_data.length,
 				'cart_data': cart_list_data,
 				'token_total': totalAFT,
 				'fee':fee, 
 				'bill_amount': grandTotal,
 			};
-
-			console.log(order_data);
+			
+			console.log(contract_data);
 			$.post("{{route('PurchaseCoins.store')}}",
-				order_data,
+				contract_data,
 				function(res){
-					alert('successfully ordered');
+					console.log(res);
+					if(res.success){
+						toastr.success("Successfully ordered", null, success_opts);
+					}
+
 				},
 				'json'
 			).fail(function(res){
-				alert('failed order');
-			})
+				toastr.warning("Failed to order", null, warning_opts);
+			})			
 		}
 
-	</script>	
-	
-	
+	</script>
 @endsection
