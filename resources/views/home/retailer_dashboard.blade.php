@@ -200,9 +200,9 @@
 		
 				<div class="tile-stats tile-red">
 					<div class="icon"><i class="entypo-users"></i></div>
-					<div class="num" data-start="0" data-end="5576899" data-postfix="" data-duration="1500" data-delay="0">0</div>
+					<div class="num" data-start="0" data-end="3" data-postfix="" data-duration="1500" data-delay="0">0</div>
 		
-					<h3>Sold AFT</h3>
+					<h3>Suppliers</h3>
 					<p>so far in our platform, and our website.</p>
 				</div>
 		
@@ -214,7 +214,7 @@
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
 					<div class="num" data-start="0" data-end="150" data-postfix="" data-duration="1500" data-delay="600">0</div>
 		
-					<h3>Suppliers</h3>
+					<h3>Products</h3>
 					<p>this is the average value.</p>
 				</div>
 		
@@ -228,7 +228,7 @@
 					<div class="icon"><i class="entypo-mail"></i></div>
 					<div class="num" data-start="0" data-end="3500" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 		
-					<h3>Retailers</h3>
+					<h3>Contracts</h3>
 					<p>messages per day.</p>
 				</div>
 		
@@ -240,7 +240,7 @@
 					<div class="icon"><i class="entypo-rss"></i></div>
 					<div class="num" data-start="0" data-end="15328" data-postfix="" data-duration="1500" data-delay="1800">0</div>
 		
-					<h3>Subscribers</h3>
+					<h3>AFT Tokens</h3>
 					<p>on our site right now.</p>
 				</div>
 		
