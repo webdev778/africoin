@@ -51,7 +51,7 @@
 
 <div class="row">
     <div class="col-sm-12 col-xs-12">
-        <h2>ETH Sale Transactions</h2>
+        <h2>Transactions</h2>
         <table class="table table-bordered datatable" id="token_transaction">
             <thead>
                 <tr>
