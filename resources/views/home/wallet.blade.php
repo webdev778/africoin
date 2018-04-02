@@ -93,7 +93,6 @@
                 })
             });
             setInterval(rebalance, 10000);
-            setInterval(fetchTransactionLog, 10000);
         });
     </script>
 @endsection
