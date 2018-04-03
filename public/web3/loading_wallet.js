@@ -363,7 +363,7 @@ function fetchTransactionLog() {
         success: function (d) {
             var trans_table = $('#token_transaction').DataTable();
             if (d.result) {
-                $('#token_transaction').find('tbody').empty();
+                trans_table.clear().draw();
                 d.result.forEach(element => {
                     if (element.from.toLowerCase() == token_owner_address.toLowerCase() && element.to.toLowerCase() == erc20contract_address.toLowerCase()) {
                         var tx_date = new Date(element.timeStamp * 1000);
