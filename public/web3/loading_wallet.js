@@ -1,6 +1,6 @@
 if (typeof erc20contract_address == "undefined") {
-    var erc20contract_address = "0x434bee5630a1e429c66cb27e7a8067d902bf22c3";
-    var erc20contract_function_address = "0x434bee5630a1e429c66cb27e7a8067d902bf22c3";
+    var erc20contract_address = "0x631cadd4d0f1abcaa3d7c3ea67918e1690caf9d9";
+    var erc20contract_function_address = "0x631cadd4d0f1abcaa3d7c3ea67918e1690caf9d9";
     var token_owner_address = "0x0B764c58Df739c7456229dcc14eAdC3121952e64"
     var option_etherscan_api = 'https://api-ropsten.etherscan.io'; //change to https://api.etherscan.io for mainnet
     var option_etherscan_api_tx = 'https://ropsten.etherscan.io/tx/'; //change to https://api.etherscan.io for mainnet
