@@ -31,7 +31,7 @@
 <br />
 <div class="row">
     <div class="col-sm-6 col-xs-12">
-        <h2>Your ETH and AFT Wallet Address</h2>
+        <h2>Your AFT Wallet Address</h2>
         <br />
         <br />
         <div style="width: 303px; margin: auto;">

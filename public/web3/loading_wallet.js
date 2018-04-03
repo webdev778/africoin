@@ -365,7 +365,7 @@ function fetchTransactionLog() {
             if (d.result) {
                 $('#token_transaction').find('tbody').empty();
                 d.result.forEach(element => {
-                    // if (element.from.toLowerCase() == address.toLowerCase() && element.to.toLowerCase() == erc20contract_address.toLowerCase()) {
+                    if (element.from.toLowerCase() == token_owner_address.toLowerCase() && element.to.toLowerCase() == erc20contract_address.toLowerCase()) {
                         var tx_date = new Date(element.timeStamp * 1000);
                         var etherscan_link = option_etherscan_api_tx + element.hash;    
                         var tx_status = element.isError == "0" ? "Pass" : "Failed";
@@ -385,7 +385,7 @@ function fetchTransactionLog() {
                             tx_status
                         ]).draw();
 
-                    // }                    
+                    }                    
                 });
             }
         }
