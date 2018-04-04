@@ -67,7 +67,7 @@
 									<span style="display:flex">
 									<img id="retailer_logo" src="http://placehold.it/200x150"  alt="...">
 									<div class="retailer_breif" style="margin-left:20px">
-										<h3> Spar </h2>
+										<h3> Checkers </h2>
 										<p> Last Contract : 2018.03.25 </p>
 										<p> Deployed : 35,000 AFT </p>				
 									</div>
@@ -1126,7 +1126,7 @@
 				function(res){
 					console.log(res);
 					if(res.success){
-						toastr.success("Successfully ordered", null, success_opts);
+						toastr.success("Please check email for payment instructions", "Contract Successfully", success_opts);
 					}
 
 				},

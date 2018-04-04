@@ -40,17 +40,17 @@
                     </a>
                 </li>
 
-                @if (Auth::user()->user_type == "Supplier" || Auth::user()->user_type == "Admin")
+                {{-- @if (Auth::user()->user_type == "Supplier" || Auth::user()->user_type == "Admin") --}}
                 <li class="has-sub">
                     <a href="{{ route('PurchaseCoins.index') }}">
                         <i class="fa fa-dollar"></i>
-                        <span class="title">Purchase</span>
+                        <span class="title">Contracts</span>
                     </a>
                     <ul>
                         @if (Auth::user()->user_type == "Supplier")
                         <li>
                             <a href="{{ route('PurchaseCoins.create') }}">
-                                <span class="title">Buy Token</span>
+                                <span class="title">Open contract</span>
                             </a>
                         </li>        
                         @endif                
@@ -59,9 +59,16 @@
                                 <span class="title">Transactions</span>
                             </a>
                         </li>
+                        @if (Auth::user()->user_type == "Retailer")
+                        <li>
+                            <a href="{{ route('Retailer.products' )}}">
+                                <span class="title">Products</span>
+                            </a>
+                        </li>                 
+                        @endif       
                     </ul>
                 </li> 
-                @endif
+                {{-- @endif --}}
 
                 @if (Auth::user()->isAdmin() || Auth::user()->user_type == 'Retailer')
                 <li>

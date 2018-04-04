@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Log;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -94,5 +95,32 @@ class ProductController extends Controller
         $barcode = $request['barcode'];
         $product = Product::where('barcode', $barcode)->first();
         return $product->toJson();
+    }
+
+    // get product information of retailer
+    public function getProductListByRetailer()
+    {
+        /*
+            select products.*, sum(quantity), sum(discount) from
+            purchase_coins, purchase_items, products
+            where
+            purchase_coins.id = purchase_items.purchase_coin_id and
+            purchase_items.product_id = products.id and
+            retailer_id = 8
+            group by products.id
+        */
+        $retailer_id = auth()->user()->company_id;
+        if($retailer_id){
+            $data['products'] = DB::table('purchase_coins')
+                                ->join('purchase_items', 'purchase_coins.id', '=', 'purchase_items.purchase_coin_id')
+                                ->join('products', 'purchase_items.product_id', '=', 'products.id')
+                                ->select(DB::raw('products.*, sum(quantity) as quantity, sum(discount) as discount'))
+                                ->where('retailer_id', $retailer_id)
+                                ->groupBy('products.id')                                
+                                ->get();
+            Log::info($data['products']);
+
+            return view('product.retailer')->with($data);
+        }
     }
 }

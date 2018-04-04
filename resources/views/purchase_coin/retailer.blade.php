@@ -28,7 +28,7 @@ jQuery( document ).ready( function( $ ) {
         <tr>
             <th>No</th>
             <th>Logo</th>
-            <th>Retailer</th>
+            <th>Supplier</th>
             <th>Item Count</th>
             <th>Total AFT</th>
             <th>Billed</th>
@@ -41,8 +41,8 @@ jQuery( document ).ready( function( $ ) {
         @foreach ($orders as $order)
         <tr class="odd gradeX">
             <td>{{$order->id}}</td>
-            <td><img style="width:50px" src="{{ asset('/storage') .'/'. $order->retailer->logo_file}}"/></td>
-            <td>{{$order->retailer->name}}</td>
+            <td><img style="width:50px" src="{{ asset('/storage') .'/'. $order->supplier->logo_file}}"/></td>
+            <td>{{$order->supplier->name}}</td>
             <td><a href="#">{{$order->items_count}}</a></td>
             <td class="center">{{$order->buy_token}}</td>
             <td class="center">{{$order->billedTotal}}</td>
@@ -62,7 +62,7 @@ jQuery( document ).ready( function( $ ) {
         <tr>
             <th>No</th>
             <th>Logo</th>
-            <th>Retailer</th>
+            <th>Supplier</th>
             <th>Item Count</th>
             <th>Total AFT</th>
             <th>Billed</th>

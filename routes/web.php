@@ -45,3 +45,5 @@ Route::post('/PurchaseCoins/approve', 'PurchaseCoinController@approve')->name('P
 
 Route::get('/Retailers.member', 'RetailerController@member')->name('Retailers.member');
 Route::post('/Retailers.member', 'RetailerMemberController@register')->name('RetailerMembers.register');
+
+Route::get('/retailer/product_summanry', 'ProductController@getProductListByRetailer')->name('Retailer.products');
