@@ -37,12 +37,18 @@ class PurchaseCoinController extends Controller
             $data['orders'] = PurchaseCoin::all();
             return view('purchase_coin.admin', $data);
         }
-        else{
+        elseif(auth()->user()->user_type == 'Supplier') {
             $supplier_id = auth()->user()->company_id;            
             $data['orders'] = PurchaseCoin::where('supplier_id', $supplier_id)->orderBy('id', 'desc')->get();
             Log::info($supplier_id);
             Log::info(json_encode($data['orders']));
             return view('purchase_coin.index', $data);
+        }else{
+            $retailer_id = auth()->user()->company_id;            
+            $data['orders'] = PurchaseCoin::where('retailer_id', $retailer_id)->orderBy('id', 'desc')->get();
+            Log::info($retailer_id);
+            Log::info(json_encode($data['orders']));
+            return view('purchase_coin.retailer', $data);            
         }
     }
 
