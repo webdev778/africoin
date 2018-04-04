@@ -56,7 +56,7 @@
                         @endif                
                         <li>
                             <a href="{{ route('PurchaseCoins.index' )}}">
-                                <span class="title">Transactions</span>
+                                <span class="title">Contracts</span>
                             </a>
                         </li>
                         @if (Auth::user()->user_type == "Retailer")
