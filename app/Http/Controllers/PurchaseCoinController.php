@@ -10,6 +10,8 @@ use App\PurchaseItem;
 use App\PurchaseCoin;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use App\Mail\Invoice;
+use Mail;
 
 use Auth;
 class PurchaseCoinController extends Controller
@@ -112,6 +114,11 @@ class PurchaseCoinController extends Controller
             ]);
         }
         
+        Log::info("-------------Purchase Coin-------------------");
+        // Log::info($purchase_coin->items);
+
+        Mail::to(auth()->user()->email)->send(new Invoice($purchase_coin));
+
         return response()->json([
             'success' => true
         ]);

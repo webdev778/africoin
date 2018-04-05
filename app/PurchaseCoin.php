@@ -18,5 +18,10 @@ class PurchaseCoin extends Model
     public function supplier()
     {
         return $this->belongsTo('App\Supplier');
-    }                               
+    }      
+    
+    public function items()
+    {
+        return $this->hasMany('App\PurchaseItem', 'purchase_coin_id');
+    }
 }

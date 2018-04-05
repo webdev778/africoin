@@ -11,4 +11,9 @@ class PurchaseItem extends Model
                             'discount'];    
     
     public $timestamps = false;
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }  
 }
