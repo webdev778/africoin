@@ -1010,13 +1010,16 @@
 							$("#product_name").text(product.name);
 
 						if(product.pic_path){
+							/*
 							$('#img_product').removeClass('fade-in');
+
 							setTimeout(function(){								
 								$('#img_product').attr('src', "{{ asset('storage/') }}/" + product.pic_path);
 								$('#img_product').addClass('fade-in');								
 								
 							}, 700);
-							
+							*/
+							$('#img_product').attr('src', "{{ asset('storage/') }}/" + product.pic_path);
 							
 							// animate
 						}
