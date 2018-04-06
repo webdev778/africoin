@@ -27,7 +27,7 @@
 				<li>
 					<a href="#tab2-3" data-toggle="tab"><span>3</span>Contract</a>
 				</li>
-				{{--  <li>
+				 {{-- <li>
 					<a href="#tab2-4" data-toggle="tab"><span>4</span>Invoice</a>
 				</li>				  --}}
 			</ul>
@@ -414,7 +414,7 @@
 								
 								<div class="row">
 									<div class="col-sm-12">
-										<a href="javascript: $('#modal-4').modal('show', {backdrop: 'static'});" class="btn btn-primary">
+										<a href="javascript: contract_confirm()" class="btn btn-primary">
 											<i class="entypo-suitcase"></i>
 											Order
 										</a>
@@ -982,6 +982,7 @@
 	<script src="{{ asset('js/zurb-responsive-tables/responsive-tables.js') }}"></script>
 	<script src="{{ asset('js/toastr.js') }}"></script>
 	<script src="{{ asset('js/purchase_token.js') }}"></script>		
+	<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 	
 	<script>
 		$(function(){
@@ -996,9 +997,28 @@
 					return;
 				}
 
+				swal({
+					title: 'Scanning Barcode Information',
+					text: 'Scanning...',
+					timer: 10000,
+					allowOutsideClick: false,
+					allowEscapeKey: false,						
+					onOpen: () => {
+						swal.showLoading()
+					}
+				}).then((result) => {
+					if (
+						// Read more about handling dismissals
+						result.dismiss === swal.DismissReason.timer
+					) {
+						console.log('I was closed by the timer')
+					}
+				});
+
 				$.get("{{route('getProductInfoByBarcode')}}",
 					{'barcode' : barcode},
 					function(res) {
+						swal.close();
 						console.log(res);
 						var product = res;
 						if(!product){
@@ -1037,6 +1057,7 @@
 					},
 					'json'
 				).fail(function(res){
+					swal.close();
 					console.log(res);
 					toastr.warning("Failed to get product info from server!", null, warning_opts);
 				});
@@ -1124,20 +1145,57 @@
 			};
 			
 			console.log(contract_data);
+
+			swal({
+				title: 'Open Contract',
+				text: 'Processing...',
+				timer: 10000,
+				allowOutsideClick: false,
+				allowEscapeKey: false,				
+				onOpen: () => {
+					swal.showLoading()
+				}
+			}).then((result) => {
+				if (
+					// Read more about handling dismissals
+					result.dismiss === swal.DismissReason.timer
+				) {
+					console.log('I was closed by the timer')
+				}
+			});
+
 			$.post("{{route('PurchaseCoins.store')}}",
 				contract_data,
 				function(res){
+					swal.close();
 					console.log(res);
 					if(res.success){
 						toastr.success("Please check email for payment instructions", "Contract Successfully", success_opts);
+						window.location.href="{{route('PurchaseCoins.index')}}";
 					}
 
 				},
 				'json'
 			).fail(function(res){
+				swal.close();
 				toastr.warning("Failed to order", null, warning_opts);
 			})			
 		}
 
+		function contract_confirm(){
+			swal({
+				title: 'Open Contract?',
+				text: "This will be taken a few seconds.",
+				type: 'info',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes'				
+				}).then((result) => {
+				if (result.value) {
+					request_contract();
+				}
+			})
+		}
 	</script>
 @endsection

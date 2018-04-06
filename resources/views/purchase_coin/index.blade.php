@@ -18,7 +18,8 @@ jQuery( document ).ready( function( $ ) {
             'excelHtml5',
             'csvHtml5',
             'pdfHtml5'
-        ]
+        ],
+        order: [[0, 'desc']]
     } );
 } );		
 </script>

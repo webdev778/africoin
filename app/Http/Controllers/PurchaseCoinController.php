@@ -12,8 +12,10 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Mail\Invoice;
 use Mail;
-
 use Auth;
+use App\Library\Invoice\InvoiceFactory;
+use Storage;
+
 class PurchaseCoinController extends Controller
 {
 
@@ -42,8 +44,8 @@ class PurchaseCoinController extends Controller
         elseif(auth()->user()->user_type == 'Supplier') {
             $supplier_id = auth()->user()->company_id;            
             $data['orders'] = PurchaseCoin::where('supplier_id', $supplier_id)->orderBy('id', 'desc')->get();
-            Log::info($supplier_id);
-            Log::info(json_encode($data['orders']));
+            // Log::info($supplier_id);
+            // Log::info(json_encode($data['orders']));
             return view('purchase_coin.index', $data);
         }else{
             $retailer_id = auth()->user()->company_id;            
@@ -117,10 +119,68 @@ class PurchaseCoinController extends Controller
         Log::info("-------------Purchase Coin-------------------");
         // Log::info($purchase_coin->items);
 
-        Mail::to(auth()->user()->email)->send(new Invoice($purchase_coin));
+        // create invoice pdf file
+        $invoice = InvoiceFactory::make();
 
+        // add items
+        foreach ($purchase_coin->items as $purchase_item){
+            $invoice->addItem($purchase_item->product->name, 
+                                $purchase_item->discount, 
+                                $purchase_item->quantity, 
+                                $purchase_item->product->id);
+        }
+
+        $invoice_number = sprintf("%'.05d", $purchase_coin->id);
+        $invoice_path = $invoice->number($invoice_number)
+                ->tax(5)
+                ->notes('Lrem ipsum dolor sit amet, consectetur adipiscing elit.')
+                ->customer([
+                    'name'      => $purchase_coin->supplier->name,
+                    'id'        => '12345678A',
+                    'phone'     => $purchase_coin->supplier->phone,
+                    'location'  => $purchase_coin->supplier->street_address.' ' .$purchase_coin->supplier->street_code,
+                    'zip'       => $purchase_coin->supplier->postal_code,
+                    'city'      => ($purchase_coin->supplier->province || ''),
+                    'country'   => 'South Africa',
+                ])
+                ->save('demo', 'invoice.default');
+/*
+        $invoice_path = InvoiceFactory::make()
+                                ->addItem('Test Item', 10.25, 2, 1412)
+                                ->addItem('Test Item 2', 5, 2, 923)
+                                ->addItem('Test Item 3', 15.55, 5, 42)
+                                ->addItem('Test Item 4', 1.25, 1, 923)
+                                ->addItem('Test Item 5', 3.12, 1, 3142)
+                                ->addItem('Test Item 6', 6.41, 3, 452)
+                                ->addItem('Test Item 7', 2.86, 1, 1526)
+                                ->number(4021)
+                                ->tax(21)
+                                ->notes('Lrem ipsum dolor sit amet, consectetur adipiscing elit.')
+                                ->customer([
+                                    'name'      => 'Èrik Campobadal Forés',
+                                    'id'        => '12345678A',
+                                    'phone'     => '+34 123 456 789',
+                                    'location'  => 'C / Unknown Street 1st',
+                                    'zip'       => '08241',
+                                    'city'      => 'Manresa',
+                                    'country'   => 'Spain',
+                                ])
+                                ->save('demo', 'invoice.default');
+*/                                
+        Log::info('-----------------pdf-------------------');
+        Log::info($invoice_path);
+        Log::info('-----------------pdf end-------------------');
+
+        $purchase_coin->invoice_file = $invoice_path;
+        $purchase_coin->invoice_no = sprintf("%'.05d", $purchase_coin->id);
+        $purchase_coin->save();
+
+        // notify supplier and retailer
+        Mail::to(auth()->user()->email)->send(new Invoice($purchase_coin));
+        
+        $request->session()->flash('invoice_file', url("/invoices/{$purchase_coin->invoice_no}"));
         return response()->json([
-            'success' => true
+            'success' => true,
         ]);
     }
 
@@ -237,5 +297,25 @@ class PurchaseCoinController extends Controller
                 'message' => 'cannot reach token API server'
             ], 500);
         }
+    }
+
+    public function download($invoice_no){
+
+        // get pdf file path by $invoice_no
+        // $invoice_path = 'public/invoices/v4SM7bdVh6NXyVDNHQ2nFiFm09xFNk8dNkoV3jtV.pdf';
+        $invoice_path = PurchaseCoin::where('invoice_no', $invoice_no)->first()->invoice_file;
+        return Storage::download($invoice_path, 'invoice-#'.$invoice_no.'.pdf');        
+
+        /*
+        $file = Storage::disk('local')->get($invoice_path);
+        $size = Storage::size($invoice_path);
+        return response($file, 200)
+                ->header('Content-type', 'application/force-download')
+                ->header('Content-Disposition', "attachment; filename=\"invoice-#{$invoice_no}.pdf\"")
+                ->header('Content-Length', $size)
+                ->header('Connection', 'close');
+                // ->header('Content-Transfer-Encoding', 'binary');
+                */
+                
     }
 }

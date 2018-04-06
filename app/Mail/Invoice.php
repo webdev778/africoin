@@ -29,6 +29,7 @@ class Invoice extends Mailable
     public $sub_total;
     public $fee;
     public $total;
+    public $pdf;
 
     public function __construct(PurchaseCoin $pc)
     {
@@ -36,8 +37,8 @@ class Invoice extends Mailable
         Log::info($this->contract_date);
         $items = $pc->items;
 
-        Log::info('-------------Invoice Making Process--------------------');
-        Log::info((string)$items);
+        Log::info('-------------Invoice Making Process1--------------------');
+        // Log::info((string)$items);
         $this->invoice_items = array();
         foreach ($items as $item)
         {
@@ -50,13 +51,15 @@ class Invoice extends Mailable
         }
 
 
-        Log::info('-------------Invoice Making Process--------------------');
-        Log::info($this->invoice_items);
+        Log::info('-------------Invoice Making Process2--------------------');
+        // Log::info($this->invoice_items);
 
         $token_price = 1;   // To get from db in the future;
         $this->sub_total = $pc->buy_token * $token_price;
         $this->fee = $pc->fee;
         $this->total = $pc->billedTotal;
+        $this->pdf = url("/invoices/{$pc->invoice_no}");
+        // Log::info("-----------------------{$this->pdf}");
     }
 
     /**

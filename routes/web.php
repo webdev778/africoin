@@ -47,3 +47,4 @@ Route::get('/Retailers.member', 'RetailerController@member')->name('Retailers.me
 Route::post('/Retailers.member', 'RetailerMemberController@register')->name('RetailerMembers.register');
 
 Route::get('/retailer/product_summanry', 'ProductController@getProductListByRetailer')->name('Retailer.products');
+Route::get('/invoices/{invoice_no}', 'PurchaseCoinController@download');

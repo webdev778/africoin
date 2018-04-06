@@ -8,7 +8,7 @@ class PurchaseCoin extends Model
 {
     //
     protected $fillable = ['retailer_id', 'supplier_id', 'items_count', 
-                            'buy_token', 'fee', 'billedTotal'];      
+                            'buy_token', 'fee', 'billedTotal', 'invoice_file', 'invoice_no'];      
     
     public function retailer()
     {
