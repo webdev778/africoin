@@ -116,7 +116,7 @@
                                 <label>
                                     <input type="checkbox" id="condition_agree" class="" name="terms" value="1">
                                 </label>
-                                <span>&nbsp; I have read, understood and hereby accept the </br><a href="{{ asset('download/term_policy/term_condition.pdf') }}" style="color: mediumspringgreen;" target="_blank">Terms and Conditions</a>, and the <a href="{{ asset('download/term_policy/privacy_policy.pdf') }}" style="color: mediumspringgreen;" target="_blank">Privacy Policy</a></span>
+                                <span>&nbsp; I have read, understood and hereby accept the </br><a href="javascript:void(0)" style="color: mediumspringgreen;">Terms and Conditions</a>, and the <a href="javascript:void(0)" style="color: mediumspringgreen;">Privacy Policy</a></span>
                             </div>
                         </div>
                         <div class="">

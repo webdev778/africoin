@@ -44,8 +44,7 @@
                                 <div class="input-group-addon">
                                     <i class="entypo-mail"></i>
                                 </div>
-                                
-                                <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ session('email') or old('email') }}" autocomplete="off"/ required>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ session('email') ? session('email') : old('email')  }}" autocomplete="off"/ required>
                             </div>
                             @if ($errors->has('email'))
                                 <div>
@@ -61,7 +60,11 @@
                                     <i class="entypo-key"></i>
                                 </div>
                                 <input id="password" type="password" class="form-control"
-                                        placeholder="Your Password" name="password" autocomplete="off" required>
+                                        placeholder="Your Password" name="password" autocomplete="off" required 
+                                        @if(session('email'))
+                                            autofocus
+                                        @endif
+                                        >
                             </div>
                             @if ($errors->has('password'))
                             <div>

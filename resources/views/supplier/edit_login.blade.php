@@ -36,7 +36,7 @@
 				<div class="form-register-success">
 					<i class="entypo-check"></i>
 					<h3>The Company informations has been successfully registered.</h3>
-					<p>Please click <a href="{{route('home')}}">here</a> to go dashboard</p>
+					<p>Please click <a href="{{route('home')}}" class="link" style="color:blue">here</a> to go dashboard<span id="timer">(10)</span></p>
 				</div>
 				
 				<div class="form-steps">
@@ -209,12 +209,13 @@
 			
 			
 			<div class="login-bottom-links">
-				
-				<a href="extra-login.html" class="link">
-					<i class="entypo-lock"></i>
-					Return to Login Page
+								
+				<a href="javascript:document.getElementById('logout-form').submit()" class="link">
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+						{{ csrf_field() }}
+					</form>
+					Log Out <i class="entypo-logout right"></i>
 				</a>
-				
 				<br />
 				
 				<a href="#">ToS</a>  - <a href="#">Privacy Policy</a>
@@ -232,4 +233,23 @@
 <script src="{{ asset('js/fileinput.js') }}"></script>       
 
 <script src="{{ asset('js/neon-register.js') }}"></script>
+<script>
+//   var count = 10; // Timer
+//   var redirect = "{{url('home')}}"; // Target URL
+
+//   function countDown() {
+//     var $timer = $("#timer"); // Timer ID
+//     if (count > 0) {
+//       count--;
+//       $timer.text("("+count+"s)"); // Timer Message
+//       setTimeout("countDown()", 1000);
+//     } else {
+//       window.location.href = redirect;
+//     }
+//   }
+
+//   $(function(){
+// 	  countDown();
+//   })
+</script>
 @endsection

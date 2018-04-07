@@ -102,13 +102,13 @@ class RegisterController extends Controller
         Log::info('-----------------verifyUser-----------------------');
         if(isset($verifyUser) ){
             $user = $verifyUser->user;
+            $email = $user->email;
             Log::info('-----------------verifyUser-----------------------');
             Log::info($verifyUser);
             if(!$user->verified) {
-                $verifyUser->user->verified = 1;
-                $verifyUser->user->save();
+                $user->verified = 1;
+                $user->save();
                 $status = "Your e-mail is verified. You can now login in the dashboard.";
-                $email = $verifyUser->user->email;
             // echo $this->from_referral_token;
             }else{
                 $status = "Your e-mail is already verified. You can now login.";
@@ -116,7 +116,7 @@ class RegisterController extends Controller
         }else{
             return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
         }
- 
+        Log::info("---------------Verify User {$email}----------------------");
         return redirect('/login')->with('status', $status)->with('email', $email);
     }
 
