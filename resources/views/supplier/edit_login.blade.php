@@ -97,21 +97,6 @@
 						</div>
 												
 						<div class="form-group">
-							<button type="button" data-step="step-2" class="btn btn-primary btn-block btn-login">
-								<i class="entypo-right-open-mini"></i>
-								Next Step
-							</button>
-						</div>
-						
-						<div class="form-group">
-							Step 1 of 2
-						</div>
-					
-					</div>
-					
-					<div class="step" id="step-2">
-					
-						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="entypo-user"></i>
@@ -149,7 +134,31 @@
 								
 								<input type="text" class="form-control" name="postal-code" id="postal-code" placeholder="Postal Code" autocomplete="off" />
 							</div>
-						</div>							
+						</div>		
+
+						
+						<div class="form-group" style="display: none">
+							<button type="button" data-step="step-2" class="btn btn-primary btn-block btn-login">
+								<i class="entypo-right-open-mini"></i>
+								Next Step
+							</button>
+						</div>
+
+						<div class="form-group">
+							<button type="submit" class="btn btn-success btn-block btn-login">
+								<i class="entypo-right-open-mini"></i>
+								Complete Registration
+							</button>
+						</div>
+
+						<div class="form-group" style="display:none">
+							Step 1 of 2
+						</div>
+					
+					</div>
+					
+					<div class="step" id="step-2">
+										
 						{{--  <div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon">
@@ -189,14 +198,7 @@
 								<input id="password-confirm" type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" autocomplete="off" required>
 							</div>
 						</div>						  --}}
-						
-						<div class="form-group">
-							<button type="submit" class="btn btn-success btn-block btn-login">
-								<i class="entypo-right-open-mini"></i>
-								Complete Registration
-							</button>
-						</div>
-						
+										
 						<div class="form-group">
 							Step 2 of 2
 						</div>
