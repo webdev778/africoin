@@ -601,7 +601,7 @@
 							</li>
 							<li>
 								<span class="lnr lnr-phone-handset"></span>
-								<a href="tel:+18002345678">+1 (800) 234-5678</a>
+								<a href="tel:+18002345678"></a>
 							</li>
 						</ul>
 					</div>
