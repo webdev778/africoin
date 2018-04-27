@@ -92,7 +92,7 @@
 					<!-- home content -->
 					<div class="home__content-wrap">
 						<div class="home__content">
-							<h1 class="home__title">A True African <br> Cryptocurrency</h1>
+							<h1 class="home__title">A True African <br> Digital Currency</h1>
 							<h2 class="home__text">For a united Africa</h2>
 							<a data-scroll href="#ticker" ><span class="learn_more">Learn More</span></a>							
 						</div>
@@ -280,7 +280,7 @@
 				<div class="col-xs-12">
 					<!-- about text -->
 					<div class="about__text">
-						<p>Africoin is an African  Cryptocurrency utilised for P2P transfers and is a reward ecosystem for large retailers to utilise Blockchain technology. </p>
+						<p>Africoin is an African  Digital Currency utilised for P2P transfers and is a reward ecosystem for large retailers to utilise Blockchain technology. </p>
 
 					</div>
 					<!-- end about text -->
