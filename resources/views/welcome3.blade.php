@@ -278,7 +278,7 @@
 				<div class="col-xs-12">
 					<!-- about text -->
 					<div class="about__text">
-						<p>Africoin is a African  Cryptocurrency utilised for P2P transfers and is a reward ecosystem for large retailers to utilise Blockchain technology. </p>
+						<p>Africoin is a African  Digital Currency utilised for P2P transfers and is a reward ecosystem for large retailers to utilise Blockchain technology. </p>
 
 					</div>
 					<!-- end about text -->
@@ -335,7 +335,7 @@
 						<!-- <span class="lnr lnr-diamond box1__icon"></span> -->
 						<i class="fa fa-puzzle-piece box1__icon"></i>
 						<h3 class="box1__title">Secure</h3>
-						<p class="box1__text"> Utilising Blockchain technology and cryptocurrency.</p>
+						<p class="box1__text"> Utilising Blockchain technology and Digital Currency.</p>
 					</div>
 					<!-- end box (style 1) -->
 				</div>
