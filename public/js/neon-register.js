@@ -90,7 +90,7 @@ var neonRegister = neonRegister || {};
 					// Lets move to 98%, meanwhile ajax data are sending and processing
 					neonRegister.setPercentage(98, function()
 					{
-						baseurl = "http://africoinapp.com/";
+						baseurl = "https://africoinapp.com/";
 						// Send data to the server
 						$.ajax({
 							url: baseurl + 'Suppliers',
